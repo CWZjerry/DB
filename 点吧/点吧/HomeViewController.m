@@ -7,8 +7,12 @@
 //
 
 #import "HomeViewController.h"
-
+#import "JZSearchBar.h"
+#import "UIImage+JZ.h"
+#import "GVColor.h"
+#import "HomeTableViewCell.h"
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
+
 @property(nonatomic,strong)UITableView * tableView;
 @end
 
@@ -21,6 +25,47 @@
     self.tableView.delegate =self;
     self.tableView.dataSource= self;
     [self.view addSubview: self.tableView];
+    
+    [self searchBar];
+    [self BarButtonItem];
+    
+}
+#pragma mark -- UISearchBar
+-(void)searchBar
+{
+    //搜索条
+    JZSearchBar * searchBar = [JZSearchBar searchBar];
+    searchBar.frame = CGRectMake(85,29,230,26);
+    [self.navigationController.view addSubview: searchBar];
+}
+
+#pragma mark --UIBarButtonItem
+-(void)BarButtonItem
+{
+    //导航栏右侧按钮且保持原色
+    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStylePlain target:self action:@selector(addItemmmClick)];
+    self.navigationItem.rightBarButtonItem = rightBarItem;
+    [self.navigationItem.rightBarButtonItem setImage:[[UIImage imageNamed:@"more"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    
+    //左侧按钮
+    UIButton *b=[UIButton buttonWithType:UIButtonTypeCustom];
+    b.frame=CGRectMake(12, 10, 60, 30);
+    [b setTitle:@"北京" forState: UIControlStateNormal];
+    [b.titleLabel setFont:[UIFont systemFontOfSize:16]];
+    [b setTitleColor:[GVColor hexStringToColor:@"#333333"] forState:UIControlStateNormal];
+    [b setImage:[UIImage imageNamed:@"arrows"] forState:UIControlStateNormal];
+    b.imageEdgeInsets=UIEdgeInsetsMake(10,40, 9, 0);
+    b.titleEdgeInsets=UIEdgeInsetsMake(10, -40, 9, 0);
+    
+    //[b addTarget:self action:@selector(come) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:b];
+}
+-(void)registerClick:(UIBarButtonItem *)bar
+{
+    
+}
+-(void)addItemmmClick
+{
     
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

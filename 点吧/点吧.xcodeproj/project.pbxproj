@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DF158901E121E6C008142D6 /* JZSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF1588F1E121E6C008142D6 /* JZSearchBar.m */; };
+		0DF158931E121E75008142D6 /* UIImage+JZ.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF158921E121E75008142D6 /* UIImage+JZ.m */; };
+		0DF158951E121E80008142D6 /* searchbar_textfield_background_os7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF158941E121E80008142D6 /* searchbar_textfield_background_os7@2x.png */; };
+		0DF158981E121E87008142D6 /* GVColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF158971E121E87008142D6 /* GVColor.m */; };
+		0DF1589C1E121E9C008142D6 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF1589A1E121E9C008142D6 /* HomeTableViewCell.m */; };
+		0DF1589D1E121E9C008142D6 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DF1589B1E121E9C008142D6 /* HomeTableViewCell.xib */; };
 		146B1831884C71950EFAE346 /* libPods-点吧Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72513B5AB676607BC564AB55 /* libPods-点吧Tests.a */; };
 		158D9DFA1E11391700B0FFB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 158D9DF91E11391700B0FFB5 /* main.m */; };
 		158D9DFD1E11391700B0FFB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 158D9DFC1E11391700B0FFB5 /* AppDelegate.m */; };
@@ -41,6 +47,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0DF1588E1E121E6C008142D6 /* JZSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZSearchBar.h; sourceTree = "<group>"; };
+		0DF1588F1E121E6C008142D6 /* JZSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZSearchBar.m; sourceTree = "<group>"; };
+		0DF158911E121E75008142D6 /* UIImage+JZ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JZ.h"; sourceTree = "<group>"; };
+		0DF158921E121E75008142D6 /* UIImage+JZ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JZ.m"; sourceTree = "<group>"; };
+		0DF158941E121E80008142D6 /* searchbar_textfield_background_os7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchbar_textfield_background_os7@2x.png"; sourceTree = "<group>"; };
+		0DF158961E121E87008142D6 /* GVColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVColor.h; sourceTree = "<group>"; };
+		0DF158971E121E87008142D6 /* GVColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVColor.m; sourceTree = "<group>"; };
+		0DF158991E121E9C008142D6 /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
+		0DF1589A1E121E9C008142D6 /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
+		0DF1589B1E121E9C008142D6 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		158D9DF51E11391700B0FFB5 /* 点吧.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "点吧.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		158D9DF91E11391700B0FFB5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		158D9DFB1E11391700B0FFB5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -173,6 +189,16 @@
 		158D9E3F1E113AB900B0FFB5 /* Home(首页) */ = {
 			isa = PBXGroup;
 			children = (
+				0DF158991E121E9C008142D6 /* HomeTableViewCell.h */,
+				0DF1589A1E121E9C008142D6 /* HomeTableViewCell.m */,
+				0DF1589B1E121E9C008142D6 /* HomeTableViewCell.xib */,
+				0DF158961E121E87008142D6 /* GVColor.h */,
+				0DF158971E121E87008142D6 /* GVColor.m */,
+				0DF158941E121E80008142D6 /* searchbar_textfield_background_os7@2x.png */,
+				0DF158911E121E75008142D6 /* UIImage+JZ.h */,
+				0DF158921E121E75008142D6 /* UIImage+JZ.m */,
+				0DF1588E1E121E6C008142D6 /* JZSearchBar.h */,
+				0DF1588F1E121E6C008142D6 /* JZSearchBar.m */,
 				158D9E311E113A3400B0FFB5 /* HomeViewController.h */,
 				158D9E321E113A3400B0FFB5 /* HomeViewController.m */,
 			);
@@ -344,6 +370,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				158D9E081E11391700B0FFB5 /* LaunchScreen.storyboard in Resources */,
+				0DF158951E121E80008142D6 /* searchbar_textfield_background_os7@2x.png in Resources */,
+				0DF1589D1E121E9C008142D6 /* HomeTableViewCell.xib in Resources */,
 				158D9E051E11391700B0FFB5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,13 +520,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DF158931E121E75008142D6 /* UIImage+JZ.m in Sources */,
 				158D9E3C1E113A9800B0FFB5 /* MySelfViewController.m in Sources */,
+				0DF158981E121E87008142D6 /* GVColor.m in Sources */,
+				0DF1589C1E121E9C008142D6 /* HomeTableViewCell.m in Sources */,
 				158D9DFD1E11391700B0FFB5 /* AppDelegate.m in Sources */,
 				158D9E2D1E11395500B0FFB5 /* MainViewController.m in Sources */,
 				158D9E361E113A5900B0FFB5 /* TakeAwayViewController.m in Sources */,
 				158D9E391E113A7600B0FFB5 /* OrderViewController.m in Sources */,
 				158D9E331E113A3400B0FFB5 /* HomeViewController.m in Sources */,
 				158D9DFA1E11391700B0FFB5 /* main.m in Sources */,
+				0DF158901E121E6C008142D6 /* JZSearchBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
