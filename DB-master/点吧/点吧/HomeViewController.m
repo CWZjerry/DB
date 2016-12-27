@@ -14,17 +14,18 @@
 #import "HomeView.h"
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
-    
-        HomeView * _homeView;
-    
+    HomeView * _homeView;
+    UIView * _headerView;
 }
+@property(nonatomic,strong) UIScrollView * headerScrollView;
+@property(nonatomic,strong) UICollectionView * headerCollection;
 @end
 
 @implementation HomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
     [self HomeTableView];
     [self searchBar];
     [self BarButtonItem];
@@ -69,37 +70,65 @@
     
 }
 
-#pragma mark -- tableView
+
 -(void)HomeTableView
 {
     _homeView = [[HomeView alloc]initWithFrame:self.view.frame];
     self.view = _homeView;
     _homeView.homeTableView.delegate =self;
     _homeView.homeTableView.dataSource= self;
+    
+    //头视图
+    _homeView.homeTableView.tableHeaderView = [self homeHeaderView];
+    
     [_homeView.homeTableView registerNib:[UINib nibWithNibName:NSStringFromClass([HomeTableViewCell class]) bundle:nil] forCellReuseIdentifier:@"HomeTableViewCell"];
 }
--(CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if(indexPath.row == 0)
-    {
-        return 120;
-    }
-    return 60;
-}
-//头视图高度
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 150;
-}
 //头视图
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+-(UIView *)homeHeaderView
 {
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 150)];
-    view.backgroundColor = [UIColor redColor];
-    _homeView.homeTableView.tableHeaderView = view;
-    return view;
+    _headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 423)];
+    _headerView.backgroundColor = [UIColor redColor];
+    [_headerView addSubview:self.headerScrollView];
+    
+    UILabel *labelLeft =[[UILabel alloc]initWithFrame:CGRectMake(12, 24, 118, 0.5)];
+    labelLeft.backgroundColor = [GVColor hexStringToColor:@"#cccccc"];
+    [_headerView addSubview:labelLeft];
+    
+    
+    UILabel *labelCentral =[[UILabel alloc]initWithFrame:CGRectMake(140, 36, 118, 0.5)];
+    labelCentral.backgroundColor = [GVColor hexStringToColor:@"#333333"];
+    [_headerView addSubview:labelCentral];
+    
+    
+    return _headerView;
+}
+//头视图滚动视图
+-(UIScrollView *)headerScrollView
+{
+    if(_headerScrollView ==nil)
+    {
+        _headerScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 150)];
+        _headerScrollView.contentSize=CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
+        _headerScrollView.pagingEnabled=YES;
+        _headerScrollView.backgroundColor = [UIColor blueColor];
+    }
+    return _headerScrollView;
 }
 
+#pragma mark -- collectionView
+//-(UICollectionView *)headerCollection
+//{
+//    if(_headerCollection == nil)
+//    {
+//        _headerCollection= [UICollectionView alloc]initWithFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>) collectionViewLayout:<#(nonnull UICollectionViewLayout *)#>
+//    }
+//}
+#pragma mark -- tableViewDataSoure
+-(CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    return 60;
+}
 //每个分区有多少行
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -112,5 +141,6 @@
     return cell;
     
 }
+
 
 @end

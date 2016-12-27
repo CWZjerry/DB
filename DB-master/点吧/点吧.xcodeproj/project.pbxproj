@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D4421511E12861A00B31284 /* UILabel+LabelFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4421501E12861A00B31284 /* UILabel+LabelFrame.m */; };
 		0DF158901E121E6C008142D6 /* JZSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF1588F1E121E6C008142D6 /* JZSearchBar.m */; };
 		0DF158931E121E75008142D6 /* UIImage+JZ.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF158921E121E75008142D6 /* UIImage+JZ.m */; };
 		0DF158951E121E80008142D6 /* searchbar_textfield_background_os7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF158941E121E80008142D6 /* searchbar_textfield_background_os7@2x.png */; };
@@ -49,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D44214F1E12861A00B31284 /* UILabel+LabelFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+LabelFrame.h"; sourceTree = "<group>"; };
+		0D4421501E12861A00B31284 /* UILabel+LabelFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LabelFrame.m"; sourceTree = "<group>"; };
 		0DF1588E1E121E6C008142D6 /* JZSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZSearchBar.h; sourceTree = "<group>"; };
 		0DF1588F1E121E6C008142D6 /* JZSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZSearchBar.m; sourceTree = "<group>"; };
 		0DF158911E121E75008142D6 /* UIImage+JZ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JZ.h"; sourceTree = "<group>"; };
@@ -256,6 +259,8 @@
 			children = (
 				158D9E311E113A3400B0FFB5 /* HomeViewController.h */,
 				158D9E321E113A3400B0FFB5 /* HomeViewController.m */,
+				0D44214F1E12861A00B31284 /* UILabel+LabelFrame.h */,
+				0D4421501E12861A00B31284 /* UILabel+LabelFrame.m */,
 				0DF158AC1E124836008142D6 /* V */,
 				0DF158AD1E12483C008142D6 /* 重写Home */,
 				0DF158AF1E12485E008142D6 /* 导航栏搜索条 */,
@@ -587,6 +592,7 @@
 				158D9E2D1E11395500B0FFB5 /* MainViewController.m in Sources */,
 				0DF158AA1E12473E008142D6 /* HomeView.m in Sources */,
 				158D9E361E113A5900B0FFB5 /* TakeAwayViewController.m in Sources */,
+				0D4421511E12861A00B31284 /* UILabel+LabelFrame.m in Sources */,
 				158D9E391E113A7600B0FFB5 /* OrderViewController.m in Sources */,
 				158D9E331E113A3400B0FFB5 /* HomeViewController.m in Sources */,
 				158D9DFA1E11391700B0FFB5 /* main.m in Sources */,
