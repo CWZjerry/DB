@@ -12,6 +12,8 @@
 #import "GVColor.h"
 #import "HomeTableViewCell.h"
 #import "HomeView.h"
+#import "UILabel+LabelFrame.h"
+
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     HomeView * _homeView;
@@ -86,19 +88,28 @@
 //头视图
 -(UIView *)homeHeaderView
 {
+    //头视图View
     _headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 423)];
     _headerView.backgroundColor = [UIColor redColor];
     [_headerView addSubview:self.headerScrollView];
     
+    //三个lable
     UILabel *labelLeft =[[UILabel alloc]initWithFrame:CGRectMake(12, 24, 118, 0.5)];
     labelLeft.backgroundColor = [GVColor hexStringToColor:@"#cccccc"];
     [_headerView addSubview:labelLeft];
     
-    
-    UILabel *labelCentral =[[UILabel alloc]initWithFrame:CGRectMake(140, 36, 118, 0.5)];
-    labelCentral.backgroundColor = [GVColor hexStringToColor:@"#333333"];
+    UILabel *labelCentral =[[UILabel alloc]initWithFrame:CGRectMake(146, 36, 118, 0.5)];
+    labelCentral.textColor = [GVColor hexStringToColor:@"#333333"];
+    labelCentral.text = @"热门推荐";
+    labelCentral.font = [UIFont systemFontOfSize:18];
+    //自适应宽高
+    CGFloat width = [UILabel getWidthWithTitle:labelCentral.text font:labelCentral.font];
+    labelCentral.frame = CGRectMake(146, 18, width, 17);
     [_headerView addSubview:labelCentral];
     
+    UILabel *labelRight =[[UILabel alloc]initWithFrame:CGRectMake(230, 24, 118, 0.5)];
+    labelRight.backgroundColor = [GVColor hexStringToColor:@"#cccccc"];
+    [_headerView addSubview:labelRight];
     
     return _headerView;
 }

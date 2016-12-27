@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UILabel (LabelFrame)
++ (CGFloat)getHeightByWidth:(CGFloat)width title:(NSString *)title font:(UIFont*)font;
 
++ (CGFloat)getWidthWithTitle:(NSString *)title font:(UIFont *)font;
 @end
