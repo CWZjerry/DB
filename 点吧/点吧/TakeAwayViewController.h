@@ -6,8 +6,8 @@
 //  Copyright © 2016年 OneGroup. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface TakeAwayViewController : BaseViewController
+@interface TakeAwayViewController : UIViewController
 
 @end

@@ -8,8 +8,8 @@
 
 #import "HomeViewController.h"
 
-@interface HomeViewController ()
-
+@interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property(nonatomic,strong)UITableView * tableView;
 @end
 
 @implementation HomeViewController
@@ -17,10 +17,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    self.tableView.delegate =self;
+    self.tableView.dataSource= self;
+    [self.view addSubview: self.tableView];
     
+}
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 20;
     
 }
 
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [[UITableViewCell alloc]init];
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
