@@ -17,6 +17,11 @@
 		0DF158AA1E12473E008142D6 /* HomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF158A91E12473E008142D6 /* HomeView.m */; };
 		146B1831884C71950EFAE346 /* libPods-点吧Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72513B5AB676607BC564AB55 /* libPods-点吧Tests.a */; };
 		1565FD5F1E1236D800C68872 /* AFNManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1565FD5E1E1236D800C68872 /* AFNManager.m */; };
+		1565FD731E129BA400C68872 /* OrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1565FD721E129BA400C68872 /* OrderViewController.m */; };
+		1565FD761E129BAD00C68872 /* TotalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1565FD751E129BAD00C68872 /* TotalViewController.m */; };
+		1565FD791E129BB900C68872 /* HallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1565FD781E129BB900C68872 /* HallViewController.m */; };
+		1565FD7C1E129BC600C68872 /* TakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1565FD7B1E129BC600C68872 /* TakeViewController.m */; };
+		1565FD7F1E129C0300C68872 /* TopScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 1565FD7E1E129C0300C68872 /* TopScroll.m */; };
 		158D9DFA1E11391700B0FFB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 158D9DF91E11391700B0FFB5 /* main.m */; };
 		158D9DFD1E11391700B0FFB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 158D9DFC1E11391700B0FFB5 /* AppDelegate.m */; };
 		158D9E051E11391700B0FFB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 158D9E041E11391700B0FFB5 /* Assets.xcassets */; };
@@ -26,7 +31,6 @@
 		158D9E2D1E11395500B0FFB5 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 158D9E2C1E11395500B0FFB5 /* MainViewController.m */; };
 		158D9E331E113A3400B0FFB5 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 158D9E321E113A3400B0FFB5 /* HomeViewController.m */; };
 		158D9E361E113A5900B0FFB5 /* TakeAwayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 158D9E351E113A5900B0FFB5 /* TakeAwayViewController.m */; };
-		158D9E391E113A7600B0FFB5 /* OrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 158D9E381E113A7600B0FFB5 /* OrderViewController.m */; };
 		158D9E3C1E113A9800B0FFB5 /* MySelfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 158D9E3B1E113A9800B0FFB5 /* MySelfViewController.m */; };
 		96C35CD06B3FA91C9F726529 /* libPods-点吧UITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA52085683AD0039D6D1EE09 /* libPods-点吧UITests.a */; };
 		E577246B9BE24E07A8D0F9EB /* libPods-点吧.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5C5178484910B1DEA3C0B0 /* libPods-点吧.a */; };
@@ -66,6 +70,16 @@
 		0DF158A91E12473E008142D6 /* HomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeView.m; sourceTree = "<group>"; };
 		1565FD5D1E1236D800C68872 /* AFNManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNManager.h; sourceTree = "<group>"; };
 		1565FD5E1E1236D800C68872 /* AFNManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNManager.m; sourceTree = "<group>"; };
+		1565FD711E129BA400C68872 /* OrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderViewController.h; sourceTree = "<group>"; };
+		1565FD721E129BA400C68872 /* OrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderViewController.m; sourceTree = "<group>"; };
+		1565FD741E129BAD00C68872 /* TotalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TotalViewController.h; sourceTree = "<group>"; };
+		1565FD751E129BAD00C68872 /* TotalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TotalViewController.m; sourceTree = "<group>"; };
+		1565FD771E129BB900C68872 /* HallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HallViewController.h; sourceTree = "<group>"; };
+		1565FD781E129BB900C68872 /* HallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HallViewController.m; sourceTree = "<group>"; };
+		1565FD7A1E129BC600C68872 /* TakeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakeViewController.h; sourceTree = "<group>"; };
+		1565FD7B1E129BC600C68872 /* TakeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakeViewController.m; sourceTree = "<group>"; };
+		1565FD7D1E129C0300C68872 /* TopScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopScroll.h; sourceTree = "<group>"; };
+		1565FD7E1E129C0300C68872 /* TopScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopScroll.m; sourceTree = "<group>"; };
 		158D9DF51E11391700B0FFB5 /* 点吧.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "点吧.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		158D9DF91E11391700B0FFB5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		158D9DFB1E11391700B0FFB5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -85,8 +99,6 @@
 		158D9E321E113A3400B0FFB5 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		158D9E341E113A5900B0FFB5 /* TakeAwayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakeAwayViewController.h; sourceTree = "<group>"; };
 		158D9E351E113A5900B0FFB5 /* TakeAwayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakeAwayViewController.m; sourceTree = "<group>"; };
-		158D9E371E113A7600B0FFB5 /* OrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderViewController.h; sourceTree = "<group>"; };
-		158D9E381E113A7600B0FFB5 /* OrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderViewController.m; sourceTree = "<group>"; };
 		158D9E3A1E113A9800B0FFB5 /* MySelfViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySelfViewController.h; sourceTree = "<group>"; };
 		158D9E3B1E113A9800B0FFB5 /* MySelfViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySelfViewController.m; sourceTree = "<group>"; };
 		18B3704A333D6E876738C760 /* Pods-点吧UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-点吧UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-点吧UITests/Pods-点吧UITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -280,8 +292,16 @@
 		158D9E411E113AE900B0FFB5 /* Order(订单) */ = {
 			isa = PBXGroup;
 			children = (
-				158D9E371E113A7600B0FFB5 /* OrderViewController.h */,
-				158D9E381E113A7600B0FFB5 /* OrderViewController.m */,
+				1565FD7D1E129C0300C68872 /* TopScroll.h */,
+				1565FD7E1E129C0300C68872 /* TopScroll.m */,
+				1565FD711E129BA400C68872 /* OrderViewController.h */,
+				1565FD721E129BA400C68872 /* OrderViewController.m */,
+				1565FD741E129BAD00C68872 /* TotalViewController.h */,
+				1565FD751E129BAD00C68872 /* TotalViewController.m */,
+				1565FD771E129BB900C68872 /* HallViewController.h */,
+				1565FD781E129BB900C68872 /* HallViewController.m */,
+				1565FD7A1E129BC600C68872 /* TakeViewController.h */,
+				1565FD7B1E129BC600C68872 /* TakeViewController.m */,
 			);
 			name = "Order(订单)";
 			sourceTree = "<group>";
@@ -583,20 +603,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1565FD761E129BAD00C68872 /* TotalViewController.m in Sources */,
 				0DF158931E121E75008142D6 /* UIImage+JZ.m in Sources */,
 				158D9E3C1E113A9800B0FFB5 /* MySelfViewController.m in Sources */,
 				0DF158981E121E87008142D6 /* GVColor.m in Sources */,
+				1565FD7F1E129C0300C68872 /* TopScroll.m in Sources */,
 				1565FD5F1E1236D800C68872 /* AFNManager.m in Sources */,
 				0DF1589C1E121E9C008142D6 /* HomeTableViewCell.m in Sources */,
 				158D9DFD1E11391700B0FFB5 /* AppDelegate.m in Sources */,
 				158D9E2D1E11395500B0FFB5 /* MainViewController.m in Sources */,
+				1565FD7C1E129BC600C68872 /* TakeViewController.m in Sources */,
 				0DF158AA1E12473E008142D6 /* HomeView.m in Sources */,
 				158D9E361E113A5900B0FFB5 /* TakeAwayViewController.m in Sources */,
 				0D4421511E12861A00B31284 /* UILabel+LabelFrame.m in Sources */,
-				158D9E391E113A7600B0FFB5 /* OrderViewController.m in Sources */,
 				158D9E331E113A3400B0FFB5 /* HomeViewController.m in Sources */,
+				1565FD731E129BA400C68872 /* OrderViewController.m in Sources */,
 				158D9DFA1E11391700B0FFB5 /* main.m in Sources */,
 				0DF158901E121E6C008142D6 /* JZSearchBar.m in Sources */,
+				1565FD791E129BB900C68872 /* HallViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
