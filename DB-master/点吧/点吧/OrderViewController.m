@@ -104,6 +104,9 @@
     
     [self showViewControlle:index];
     
+    
+    
+    
     UIButton*bth=self.topscroll.titleArr[index];
     [self.topscroll selectTitleCente:bth];
 }
