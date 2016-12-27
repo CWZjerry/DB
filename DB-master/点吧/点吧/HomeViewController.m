@@ -40,6 +40,7 @@
     JZSearchBar * searchBar = [JZSearchBar searchBar];
     searchBar.frame = CGRectMake(85,29,230,26);
     [self.navigationController.view addSubview: searchBar];
+    //12
 }
 
 #pragma mark --UIBarButtonItem
