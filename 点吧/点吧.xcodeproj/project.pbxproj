@@ -14,6 +14,7 @@
 		0DF1589C1E121E9C008142D6 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF1589A1E121E9C008142D6 /* HomeTableViewCell.m */; };
 		0DF1589D1E121E9C008142D6 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DF1589B1E121E9C008142D6 /* HomeTableViewCell.xib */; };
 		146B1831884C71950EFAE346 /* libPods-点吧Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72513B5AB676607BC564AB55 /* libPods-点吧Tests.a */; };
+		1565FD5F1E1236D800C68872 /* AFNManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1565FD5E1E1236D800C68872 /* AFNManager.m */; };
 		158D9DFA1E11391700B0FFB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 158D9DF91E11391700B0FFB5 /* main.m */; };
 		158D9DFD1E11391700B0FFB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 158D9DFC1E11391700B0FFB5 /* AppDelegate.m */; };
 		158D9E051E11391700B0FFB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 158D9E041E11391700B0FFB5 /* Assets.xcassets */; };
@@ -57,6 +58,8 @@
 		0DF158991E121E9C008142D6 /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
 		0DF1589A1E121E9C008142D6 /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
 		0DF1589B1E121E9C008142D6 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
+		1565FD5D1E1236D800C68872 /* AFNManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNManager.h; sourceTree = "<group>"; };
+		1565FD5E1E1236D800C68872 /* AFNManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNManager.m; sourceTree = "<group>"; };
 		158D9DF51E11391700B0FFB5 /* 点吧.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "点吧.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		158D9DF91E11391700B0FFB5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		158D9DFB1E11391700B0FFB5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -119,6 +122,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1565FD591E12333C00C68872 /* Tools(工具) */ = {
+			isa = PBXGroup;
+			children = (
+				1565FD5D1E1236D800C68872 /* AFNManager.h */,
+				1565FD5E1E1236D800C68872 /* AFNManager.m */,
+			);
+			name = "Tools(工具)";
+			sourceTree = "<group>";
+		};
 		158D9DEC1E11391700B0FFB5 = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +162,7 @@
 				158D9E411E113AE900B0FFB5 /* Order(订单) */,
 				158D9E401E113AC800B0FFB5 /* TakeAway(外卖) */,
 				158D9E3F1E113AB900B0FFB5 /* Home(首页) */,
+				1565FD591E12333C00C68872 /* Tools(工具) */,
 				158D9E2B1E11395500B0FFB5 /* MainViewController.h */,
 				158D9E2C1E11395500B0FFB5 /* MainViewController.m */,
 				158D9E041E11391700B0FFB5 /* Assets.xcassets */,
@@ -523,6 +536,7 @@
 				0DF158931E121E75008142D6 /* UIImage+JZ.m in Sources */,
 				158D9E3C1E113A9800B0FFB5 /* MySelfViewController.m in Sources */,
 				0DF158981E121E87008142D6 /* GVColor.m in Sources */,
+				1565FD5F1E1236D800C68872 /* AFNManager.m in Sources */,
 				0DF1589C1E121E9C008142D6 /* HomeTableViewCell.m in Sources */,
 				158D9DFD1E11391700B0FFB5 /* AppDelegate.m in Sources */,
 				158D9E2D1E11395500B0FFB5 /* MainViewController.m in Sources */,
