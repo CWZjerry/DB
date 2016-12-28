@@ -12,6 +12,7 @@
 #import "OrderViewController.h"
 #import "MySelfViewController.h"
 #import "AFNManager.h"
+#import "GPSViewController.h"
 @interface MainViewController ()
 
 @end
@@ -40,7 +41,7 @@
                           WithTitle:@"首页"
                           imageName:@"home_press"
                   selectedImageName:@"home_up"];
-    [self addOneChildViewController:[[UINavigationController alloc]initWithRootViewController:[[TakeAwayViewController alloc]init]]
+    [self addOneChildViewController:[[GPSViewController alloc]initWithRootViewController:[[TakeAwayViewController alloc]init]]
                           WithTitle:@"外卖"
                           imageName:@"take_down"
                   selectedImageName:@"take_up"];

@@ -38,7 +38,7 @@
         // 设置默认提示文字
         NSMutableDictionary * dict = [NSMutableDictionary dictionary];
         dict[NSForegroundColorAttributeName] = [UIColor grayColor];
-        self.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"输入商家.商圈" attributes:dict];
+        self.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"       输入商家.商圈" attributes:dict];
 
         
         /**

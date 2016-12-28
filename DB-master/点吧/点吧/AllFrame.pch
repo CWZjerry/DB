@@ -1,0 +1,27 @@
+//
+//  AllFrame.pch
+//  点吧
+//
+//  Created by Jerry on 2016/12/28.
+//  Copyright © 2016年 OneGroup. All rights reserved.
+//
+
+#ifndef AllFrame_pch
+#define AllFrame_pch
+
+#endif /* AllFrame_pch */
+
+
+//换算尺寸
+#define SIZE(size,type) (size*72.0/type)
+
+//屏幕尺寸
+#define FrameBounds [UIScreen mainScreen].bounds
+#define WidthBounds [UIScreen mainScreen].bounds.size.width
+#define HeightBounds [UIScreen mainScreen].bounds.size.height
+
+//坐标为0
+#define ZeroFrame 0
+
+//字体颜色
+#define FontColor GVColor hexStringToColor:@"#333333"
