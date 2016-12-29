@@ -11,6 +11,7 @@
 @protocol TopScrollDelagate<NSObject>
 //通过下标判断加载视图
 - (void)selectTitleAtIndex:(NSInteger)index;
+
 @end
 
 @interface TopScroll : UIScrollView

@@ -61,8 +61,8 @@ static CGFloat bthWidth;
         [bth addTarget:self action:@selector(selectTitleCente:) forControlEvents:UIControlEventTouchUpInside];
         
         [bth setTitle:arr[i] forState:UIControlStateNormal];
-        [bth setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-        [bth setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
+        [bth setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [bth setTitleColor:[UIColor orangeColor] forState:UIControlStateSelected];
         [self addSubview:bth];
         [self.titleArr addObject:bth];
     }
@@ -101,6 +101,7 @@ static CGFloat bthWidth;
     //显示居中
     if (content>WIDTH) {
         [self titleCenter:selectBth];
+        
     }
     
     

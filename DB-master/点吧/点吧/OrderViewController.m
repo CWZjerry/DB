@@ -44,8 +44,8 @@
         _bottomScroll.bounces = NO;
         _bottomScroll.showsHorizontalScrollIndicator = NO;
         _bottomScroll.delegate=self;
-        TotalViewController*one=[[TotalViewController alloc]init];
-        [_bottomScroll addSubview:one.view];
+        UIViewController*viewC=self.childViewControllers[0];
+        [_bottomScroll addSubview:viewC.view];
     }
     return _bottomScroll;
 }
