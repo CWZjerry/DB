@@ -16,12 +16,14 @@
 #import <SDCycleScrollView.h>
 #import "headerCollectionViewCell.h"
 #import "PopoverView.h"
+#import "hotelViewController.h"
 
-@interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
+@interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UINavigationControllerDelegate>
 {
     HomeView * _homeView;
     UIView * _headerView;
     NSArray * _headerArr;
+    UIView * _navView;//导航栏view
 }
 @property(nonatomic,strong) UICollectionView * headerCollection;
 @property(nonatomic,strong) SDCycleScrollView * headerSDC;
@@ -31,12 +33,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationController.delegate=self;
+    
     _headerArr = @[@"img1",@"img2",@"img4"];
     
     [self HomeTableView];
-    [self searchBar];
+   
     [self BarButtonItem];
+}
+#pragma mark -- 视图将要出现时
+-(void)viewWillAppear:(BOOL)animated
+{
+    //隐藏导航栏
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
     
+    //在导航栏上添加View
+    _navView = [[UIView alloc]initWithFrame:CGRectMake(ZeroFrame, ZeroFrame, WidthBounds, 64)];
+    _navView.backgroundColor = [UIColor blueColor];
+    
+    [self.view addSubview:_navView];
+    [self searchBar];
 }
 #pragma mark -- UISearchBar
 -(void)searchBar
@@ -44,9 +62,12 @@
     //搜索条
     JZSearchBar * searchBar = [JZSearchBar searchBar];
     searchBar.frame = CGRectMake(85,29,230,26);
-    [self.navigationController.view addSubview: searchBar];
+    [_navView addSubview:searchBar];
 }
-
+-(void)leftBtn
+{
+    
+}
 #pragma mark --UIBarButtonItem
 -(void)BarButtonItem
 {
@@ -197,6 +218,7 @@
     synthesisBtn.titleEdgeInsets=UIEdgeInsetsMake(10, -30, 9, 0);
     [synthesisBtn addTarget:self action:@selector(ClickBtn:) forControlEvents:UIControlEventTouchUpInside];
     [_headerView addSubview:synthesisBtn];
+    
 }
 //全部
 - (NSArray<PopoverAction *> *)QQActions {
@@ -310,6 +332,14 @@
         _headerSDC.delegate=self;
     }
     return _headerSDC;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    hotelViewController *hote = [[hotelViewController alloc]init];
+    //跳转时候讲返回按钮设置为""
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
+    [self.navigationController pushViewController:hote animated:YES];
 }
 -(CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

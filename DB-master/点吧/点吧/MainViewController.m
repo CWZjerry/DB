@@ -37,7 +37,7 @@
 
 -(void)setUpController
 {
-    [self addOneChildViewController:[[UINavigationController alloc]initWithRootViewController:[[HomeViewController alloc]init]]
+    [self addOneChildViewController:[[GPSViewController alloc]initWithRootViewController:[[HomeViewController alloc]init]]
                           WithTitle:@"首页"
                           imageName:@"home_press"
                   selectedImageName:@"home_up"];

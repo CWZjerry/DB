@@ -14,7 +14,7 @@
 {
     if(_homeTableView == nil)
     {
-        _homeTableView =[[UITableView alloc]initWithFrame:self.frame style:UITableViewStylePlain];
+        _homeTableView =[[UITableView alloc]initWithFrame:CGRectMake(ZeroFrame, 44, WidthBounds,HeightBounds) style:UITableViewStylePlain];
     }
     return _homeTableView;
 }

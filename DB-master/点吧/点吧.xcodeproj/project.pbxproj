@@ -15,6 +15,7 @@
 		0DA3F60B1E13A04A00E2E030 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA3F6071E13A04A00E2E030 /* PopoverView.m */; };
 		0DA3F60C1E13A04A00E2E030 /* PopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA3F6091E13A04A00E2E030 /* PopoverViewCell.m */; };
 		0DC495BC1E13CDC700537686 /* GPSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC495BB1E13CDC700537686 /* GPSViewController.m */; };
+		0DC495BF1E148EBA00537686 /* hotelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC495BE1E148EBA00537686 /* hotelViewController.m */; };
 		0DE95E171E1336B3008C762F /* img1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DE95E141E1336B3008C762F /* img1.png */; };
 		0DE95E181E1336B3008C762F /* img2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DE95E151E1336B3008C762F /* img2.png */; };
 		0DE95E191E1336B3008C762F /* img4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DE95E161E1336B3008C762F /* img4.png */; };
@@ -75,6 +76,8 @@
 		0DA3F6091E13A04A00E2E030 /* PopoverViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewCell.m; sourceTree = "<group>"; };
 		0DC495BA1E13CDC700537686 /* GPSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSViewController.h; sourceTree = "<group>"; };
 		0DC495BB1E13CDC700537686 /* GPSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSViewController.m; sourceTree = "<group>"; };
+		0DC495BD1E148EBA00537686 /* hotelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hotelViewController.h; sourceTree = "<group>"; };
+		0DC495BE1E148EBA00537686 /* hotelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hotelViewController.m; sourceTree = "<group>"; };
 		0DE95E141E1336B3008C762F /* img1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img1.png; sourceTree = "<group>"; };
 		0DE95E151E1336B3008C762F /* img2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img2.png; sourceTree = "<group>"; };
 		0DE95E161E1336B3008C762F /* img4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img4.png; sourceTree = "<group>"; };
@@ -195,6 +198,24 @@
 			path = PopoverView;
 			sourceTree = "<group>";
 		};
+		0DC495C01E148EC100537686 /* 饭店 */ = {
+			isa = PBXGroup;
+			children = (
+				0DC495BD1E148EBA00537686 /* hotelViewController.h */,
+				0DC495BE1E148EBA00537686 /* hotelViewController.m */,
+			);
+			name = "饭店";
+			sourceTree = "<group>";
+		};
+		0DC495C11E148ED100537686 /* 导航 */ = {
+			isa = PBXGroup;
+			children = (
+				0DC495BA1E13CDC700537686 /* GPSViewController.h */,
+				0DC495BB1E13CDC700537686 /* GPSViewController.m */,
+			);
+			name = "导航";
+			sourceTree = "<group>";
+		};
 		0DE95E1B1E133A93008C762F /* 首页image */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				0DE95E1A1E133A85008C762F /* AllFrame.pch */,
+				0DC495C11E148ED100537686 /* 导航 */,
 				0DA3F6031E13A04A00E2E030 /* PopoverView */,
 				0D0271FE1E13435100D3D350 /* 自适应lable类别 */,
 				0DF158AE1E124845008142D6 /* 颜色处理 */,
@@ -337,10 +359,9 @@
 		158D9E3F1E113AB900B0FFB5 /* Home(首页) */ = {
 			isa = PBXGroup;
 			children = (
-				0DC495BA1E13CDC700537686 /* GPSViewController.h */,
-				0DC495BB1E13CDC700537686 /* GPSViewController.m */,
 				158D9E311E113A3400B0FFB5 /* HomeViewController.h */,
 				158D9E321E113A3400B0FFB5 /* HomeViewController.m */,
+				0DC495C01E148EC100537686 /* 饭店 */,
 				0DF158AC1E124836008142D6 /* V */,
 				0DF158AD1E12483C008142D6 /* 重写Home */,
 				0DF158AF1E12485E008142D6 /* 导航栏搜索条 */,
@@ -593,6 +614,7 @@
 				0DA3F5F71E1389C600E2E030 /* HomeTableViewCell.m in Sources */,
 				1565FD761E129BAD00C68872 /* TotalViewController.m in Sources */,
 				0DF158931E121E75008142D6 /* UIImage+JZ.m in Sources */,
+				0DC495BF1E148EBA00537686 /* hotelViewController.m in Sources */,
 				158D9E3C1E113A9800B0FFB5 /* MySelfViewController.m in Sources */,
 				0DA3F60B1E13A04A00E2E030 /* PopoverView.m in Sources */,
 				0D0271FA1E13432E00D3D350 /* headerCollectionViewCell.m in Sources */,
