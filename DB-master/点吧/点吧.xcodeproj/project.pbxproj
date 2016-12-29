@@ -41,6 +41,8 @@
 		158D9E331E113A3400B0FFB5 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 158D9E321E113A3400B0FFB5 /* HomeViewController.m */; };
 		158D9E361E113A5900B0FFB5 /* TakeAwayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 158D9E351E113A5900B0FFB5 /* TakeAwayViewController.m */; };
 		158D9E3C1E113A9800B0FFB5 /* MySelfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 158D9E3B1E113A9800B0FFB5 /* MySelfViewController.m */; };
+		BA6567E81E14A2130075E865 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6567E71E14A2130075E865 /* LoginViewController.m */; };
+		BA6567EC1E14A2570075E865 /* UIView+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6567EB1E14A2570075E865 /* UIView+Addition.m */; };
 		E577246B9BE24E07A8D0F9EB /* libPods-点吧.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5C5178484910B1DEA3C0B0 /* libPods-点吧.a */; };
 /* End PBXBuildFile section */
 
@@ -131,6 +133,11 @@
 		72513B5AB676607BC564AB55 /* libPods-点吧Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-点吧Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F87AB6569E9617A2747B048 /* Pods-点吧.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-点吧.release.xcconfig"; path = "Pods/Target Support Files/Pods-点吧/Pods-点吧.release.xcconfig"; sourceTree = "<group>"; };
 		9E5C5178484910B1DEA3C0B0 /* libPods-点吧.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-点吧.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA6567E61E14A2130075E865 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		BA6567E71E14A2130075E865 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		BA6567E91E14A2570075E865 /* MyHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHelper.h; sourceTree = "<group>"; };
+		BA6567EA1E14A2570075E865 /* UIView+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Addition.h"; sourceTree = "<group>"; };
+		BA6567EB1E14A2570075E865 /* UIView+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Addition.m"; sourceTree = "<group>"; };
 		EA52085683AD0039D6D1EE09 /* libPods-点吧UITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-点吧UITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -284,6 +291,9 @@
 		1565FD591E12333C00C68872 /* Tools(工具) */ = {
 			isa = PBXGroup;
 			children = (
+				BA6567E91E14A2570075E865 /* MyHelper.h */,
+				BA6567EA1E14A2570075E865 /* UIView+Addition.h */,
+				BA6567EB1E14A2570075E865 /* UIView+Addition.m */,
 				1565FD5D1E1236D800C68872 /* AFNManager.h */,
 				1565FD5E1E1236D800C68872 /* AFNManager.m */,
 			);
@@ -405,6 +415,8 @@
 			children = (
 				158D9E3A1E113A9800B0FFB5 /* MySelfViewController.h */,
 				158D9E3B1E113A9800B0FFB5 /* MySelfViewController.m */,
+				BA6567E61E14A2130075E865 /* LoginViewController.h */,
+				BA6567E71E14A2130075E865 /* LoginViewController.m */,
 			);
 			name = "MySelf(我的)";
 			sourceTree = "<group>";
@@ -618,6 +630,7 @@
 			files = (
 				0DA3F5F71E1389C600E2E030 /* HomeTableViewCell.m in Sources */,
 				0DF158931E121E75008142D6 /* UIImage+JZ.m in Sources */,
+				BA6567E81E14A2130075E865 /* LoginViewController.m in Sources */,
 				152C96681E149BFB006BF716 /* TotalTableViewCell.m in Sources */,
 				0DC495BF1E148EBA00537686 /* hotelViewController.m in Sources */,
 				152C96651E149BED006BF716 /* TotalViewController.m in Sources */,
@@ -638,6 +651,7 @@
 				0DA3F60C1E13A04A00E2E030 /* PopoverViewCell.m in Sources */,
 				0D4421511E12861A00B31284 /* UILabel+LabelFrame.m in Sources */,
 				158D9E331E113A3400B0FFB5 /* HomeViewController.m in Sources */,
+				BA6567EC1E14A2570075E865 /* UIView+Addition.m in Sources */,
 				0DA3F60A1E13A04A00E2E030 /* PopoverAction.m in Sources */,
 				158D9DFA1E11391700B0FFB5 /* main.m in Sources */,
 				0DF158901E121E6C008142D6 /* JZSearchBar.m in Sources */,
