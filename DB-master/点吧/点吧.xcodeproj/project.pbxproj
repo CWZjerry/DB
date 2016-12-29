@@ -320,7 +320,6 @@
 		158D9DF71E11391700B0FFB5 /* 点吧 */ = {
 			isa = PBXGroup;
 			children = (
-				0DE95E1B1E133A93008C762F /* 首页image */,
 				158D9DFB1E11391700B0FFB5 /* AppDelegate.h */,
 				158D9DFC1E11391700B0FFB5 /* AppDelegate.m */,
 				158D9E3F1E113AB900B0FFB5 /* Home(首页) */,
@@ -367,6 +366,7 @@
 		158D9E3F1E113AB900B0FFB5 /* Home(首页) */ = {
 			isa = PBXGroup;
 			children = (
+				0DE95E1B1E133A93008C762F /* 首页image */,
 				158D9E311E113A3400B0FFB5 /* HomeViewController.h */,
 				158D9E321E113A3400B0FFB5 /* HomeViewController.m */,
 				0DC495C01E148EC100537686 /* 饭店 */,
