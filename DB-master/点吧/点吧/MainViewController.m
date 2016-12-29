@@ -27,9 +27,9 @@
     //AFN封装测试
     NSString * str = @"https://api.weibo.com/2/statuses/home_timeline.json?access_token=2.00DsiAWGOwnFDBf2cc16b96d0Ojl4W";
     [[AFNManager sharedManager]requestType:GET URL:str withparameters:nil success:^(id data) {
-        NSLog(@"%@",data);
+       // NSLog(@"%@",data);
     } failure:^(NSError *error) {
-        NSLog(@"%@",error);
+       // NSLog(@"%@",error);
     }];
     
     

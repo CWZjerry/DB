@@ -8,7 +8,6 @@
 
 #import "LoginViewController.h"
 #import "GVColor.h"
-#import "MyHelper.h"
 #import "UIView+Addition.h"
 
 @interface LoginViewController ()<UITextFieldDelegate>

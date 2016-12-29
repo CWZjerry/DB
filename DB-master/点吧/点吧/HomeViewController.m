@@ -7,8 +7,6 @@
 //
 
 #import "HomeViewController.h"
-#import "JZSearchBar.h"
-#import "UIImage+JZ.h"
 #import "GVColor.h"
 #import "HomeTableViewCell.h"
 #import "HomeView.h"
@@ -18,7 +16,7 @@
 #import "PopoverView.h"
 #import "hotelViewController.h"
 
-@interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UINavigationControllerDelegate>
+@interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
 {
     HomeView * _homeView;
     UIView * _headerView;
@@ -27,20 +25,16 @@
 }
 @property(nonatomic,strong) UICollectionView * headerCollection;
 @property(nonatomic,strong) SDCycleScrollView * headerSDC;
+@property(nonatomic,strong) UISearchBar * headerSearchBar;
 @end
 
 @implementation HomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.navigationController.delegate=self;
-    
     _headerArr = @[@"img1",@"img2",@"img4"];
     
     [self HomeTableView];
-   
-    [self BarButtonItem];
 }
 #pragma mark -- 视图将要出现时
 -(void)viewWillAppear:(BOOL)animated
@@ -51,44 +45,68 @@
     
     //在导航栏上添加View
     _navView = [[UIView alloc]initWithFrame:CGRectMake(ZeroFrame, ZeroFrame, WidthBounds, 64)];
-    _navView.backgroundColor = [UIColor blueColor];
-    
+    _navView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_navView];
-    [self searchBar];
+    [_navView addSubview:self.headerSearchBar];
+    [self navigationBtn];
 }
 #pragma mark -- UISearchBar
--(void)searchBar
+-(UISearchBar *)headerSearchBar
 {
-    //搜索条
-    JZSearchBar * searchBar = [JZSearchBar searchBar];
-    searchBar.frame = CGRectMake(85,29,230,26);
-    [_navView addSubview:searchBar];
+    if(_headerSearchBar == nil)
+    {
+        _headerSearchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(85, 29, 230, 26)];
+        // 1.设置背景色
+        //设置背景图去掉上下黑线
+        _headerSearchBar.backgroundImage = [[UIImage alloc]init];
+        //背景颜色设置为白色
+        _headerSearchBar.barTintColor = [UIColor whiteColor];
+        _headerSearchBar.placeholder = @"请输入商家和商圈";
+        /*
+         2.设置边框颜色和圆角(通过KVC的方法获得UISearchBar的私有变量searchField(UITextField类型),所以设置search的边框就是设置了UITextField的边框)
+         */
+        UITextField *searchField = [self.headerSearchBar valueForKey:@"searchField"];
+        if(searchField)
+        {
+            [searchField setBackgroundColor:[UIColor whiteColor]];
+            searchField.layer.cornerRadius = 13;
+            searchField.layer.borderWidth = 1.5;
+            searchField.layer.borderColor = [GVColor hexStringToColor:@"#dddddd"].CGColor;
+            searchField.textColor = [UIColor blackColor];
+            searchField.font = [UIFont systemFontOfSize:14];
+            searchField.layer.masksToBounds = YES;
+            //修改光标颜色
+            searchField.tintColor = [GVColor hexStringToColor:@"#cccccc"];
+        }
+        // 3.设置搜索图标
+        [self.headerSearchBar setImage:[UIImage imageNamed:@"search"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
+    }
+    return _headerSearchBar;
 }
--(void)leftBtn
+#pragma mark -- 导航栏左右按钮
+-(void)navigationBtn
 {
-    
-}
-#pragma mark --UIBarButtonItem
--(void)BarButtonItem
-{
-    //导航栏右侧按钮且保持原色
-    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStylePlain target:self action:@selector(addItemmmClick:)];
-    self.navigationItem.rightBarButtonItem = rightBarItem;
-    [self.navigationItem.rightBarButtonItem setImage:[[UIImage imageNamed:@"more"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-    
     //左侧按钮
-    UIButton *b=[UIButton buttonWithType:UIButtonTypeCustom];
-    b.frame=CGRectMake(12, 10, 60, 30);
-    [b setTitle:@"北京" forState: UIControlStateNormal];
-    [b.titleLabel setFont:[UIFont systemFontOfSize:16]];
-    [b setTitleColor:[GVColor hexStringToColor:@"#333333"] forState:UIControlStateNormal];
-    [b setImage:[UIImage imageNamed:@"arrows"] forState:UIControlStateNormal];
-    b.imageEdgeInsets=UIEdgeInsetsMake(10,40, 9, 0);
-    b.titleEdgeInsets=UIEdgeInsetsMake(10, -40, 9, 0);
+    UIButton * leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    leftBtn.frame=CGRectMake(12, 25, 60, 30);
+    [leftBtn setTitle:@"北京" forState: UIControlStateNormal];
+    [leftBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
+    [leftBtn setTitleColor:[GVColor hexStringToColor:@"#333333"] forState:UIControlStateNormal];
+    [leftBtn setImage:[UIImage imageNamed:@"arrows"] forState:UIControlStateNormal];
+    leftBtn.imageEdgeInsets=UIEdgeInsetsMake(10,40, 9, 0);
+    leftBtn.titleEdgeInsets=UIEdgeInsetsMake(10, -40, 9, 0);
+    //点击事件
+    [leftBtn addTarget:self action:@selector(city) forControlEvents:UIControlEventTouchUpInside];
+    [_navView addSubview:leftBtn];
     
-    [b addTarget:self action:@selector(city) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:b];
+    //右侧按钮
+    UIButton * rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    rightBtn.frame=CGRectMake(WidthBounds-55, 25, 60, 30);
+    [rightBtn setImage:[UIImage imageNamed:@"more"] forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:@selector(addItemmmClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_navView addSubview:rightBtn];
 }
+//点击城市按钮事件
 -(void)city
 {
  
@@ -337,8 +355,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     hotelViewController *hote = [[hotelViewController alloc]init];
-    //跳转时候讲返回按钮设置为""
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
+    hote.hidesBottomBarWhenPushed = YES;//隐藏标签栏
     [self.navigationController pushViewController:hote animated:YES];
 }
 -(CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

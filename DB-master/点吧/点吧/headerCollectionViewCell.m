@@ -45,7 +45,7 @@
         _labelTitle.frame = CGRectMake(4, 125, 181, 36);
         _labelTitle.textColor = [GVColor hexStringToColor:@"#888888"];
         _labelTitle.numberOfLines = 0;
-        _labelTitle.lineBreakMode = UILineBreakModeCharacterWrap;
+        _labelTitle.lineBreakMode = 0;
     }
     return _labelTitle;
 }

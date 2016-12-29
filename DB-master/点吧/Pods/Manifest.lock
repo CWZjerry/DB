@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - GPUImage (0.1.7)
   - Masonry (1.0.2)
   - SDAutoLayout (2.1.7)
   - SDCycleScrollView (1.65):
@@ -24,17 +25,19 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - GPUImage
   - Masonry
   - SDAutoLayout
   - SDCycleScrollView
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   SDAutoLayout: e9b36d04b8c0b504762a04d76fbbe5108944297a
   SDCycleScrollView: f72904c77698a7f93a41bcbbc2d78b073bf7326c
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: 329f87033cb6c3d81b80f444569eb8aa39793bc5
+PODFILE CHECKSUM: 7497bcc37b1209cd8590659028a843eda73e3bda
 
 COCOAPODS: 1.0.1
