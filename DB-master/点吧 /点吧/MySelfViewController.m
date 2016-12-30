@@ -5,9 +5,6 @@
 //  Created by Pro on 2016/12/26.
 //  Copyright © 2016年 OneGroup. All rights reserved.
 //
-#define ScreenWidth [[UIScreen mainScreen] bounds].size.width
-
-#define ScreenHeight [[UIScreen mainScreen] bounds].size.height
 
 #import "MySelfViewController.h"
 #import "LoginViewController.h"

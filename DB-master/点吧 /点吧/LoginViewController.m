@@ -10,6 +10,7 @@
 #import "GVColor.h"
 #import "MyHelper.h"
 #import "UIView+Addition.h"
+#import "findPassWordViewController.h"
 
 @interface LoginViewController ()<UITextFieldDelegate,UIScrollViewAccessibilityDelegate,UIScrollViewDelegate>
 
@@ -55,6 +56,13 @@
 
 @property (nonatomic ,strong) UIButton *longinBtnTwo;
 
+@property (nonatomic ,strong) UIButton *findPassword;//找回密码
+
+@property (nonatomic, strong) UIButton *rememberPassword;//记住密码
+
+@property (nonatomic ,strong) UIButton *circularBtn;
+
+
 @end
 
 @implementation LoginViewController
@@ -86,22 +94,14 @@
     self.theScrollView.delegate = self;
     
     [self.view addSubview:self.theScrollView];
-    //    // 滚动视图的内容的大小
-    //    NSInteger pageNumber=2;
-    //    _theScrollView.contentSize =CGSizeMake(self.view.frame.size.width*pageNumber, self.view.frame.size.height);
-    //    // 利用循环添加
-    //    for (int i=0; i<pageNumber; i++) {
-    //        UIImageView *imageView=[[UIImageView alloc]initWithFrame:CGRectMake(self.view.frame.size.width*i, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    //        imageView.image =[UIImage imageNamed:arr[i]  ];
-    //        [scroll addSubview:imageView];
-    
+   
     
 }
 -(void)setUpUI{
     //设置底色
-    _shadowView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 370)];
-    _shadowView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:_shadowView];
+//    _shadowView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 370)];
+//    _shadowView.backgroundColor = [UIColor whiteColor];
+//    [self.view addSubview:_shadowView];
     
     _titleBtn = [[UIButton alloc] initWithFrame:CGRectMake(50, 79, ScreenWidth/2-60 , 30)];
     [_titleBtn setTitle:@"手机号快捷登录" forState:UIControlStateNormal];
@@ -208,7 +208,7 @@
     
     
     //登录按钮
-    _loginBtn = [[UIButton alloc] initWithFrame:CGRectMake((ScreenWidth-225)/2, _shadowView.bottom + 50, 225 , 33)];
+    _loginBtn = [[UIButton alloc] initWithFrame:CGRectMake((ScreenWidth-225)/2, _lineTwo.bottom + 100, 225 , 33)];
     [_loginBtn setTitle:@"登录" forState:UIControlStateNormal];
     [_loginBtn setTitleColor:[GVColor hexStringToColor:@"#333333"] forState:UIControlStateNormal];
     [_loginBtn setBackgroundColor:[GVColor hexStringToColor:@"#ffba14"]];
@@ -220,10 +220,12 @@
 }
 
 -(void)titleBtnClick{
-    
+//    [_titleBtn setTitleColor:[GVColor hexStringToColor:@"#ffba14"] forState:UIControlStateNormal
+//     ];
+     [_titlePassBtn setTitleColor:[GVColor hexStringToColor:@"#88888"] forState:UIControlStateNormal];
     [_titleBtn setTitleColor:[GVColor hexStringToColor:@"#ffba14"] forState:UIControlStateNormal
      ];
-    [_titlePassBtn setTitleColor:[GVColor hexStringToColor:@"#88888"] forState:UIControlStateNormal];
+   
     [_topLine setBackgroundColor:[GVColor hexStringToColor:@"#ffba14"]];
     _bottomLine.hidden = YES;
     _topLine.hidden = NO;
@@ -239,7 +241,7 @@
     _promptBtn.hidden = NO;
     _loginBtn.hidden = NO;
     _textBtn.hidden = NO;
-    
+   
 
     _longinBtnTwo.hidden = YES;
     _imageAccount.hidden = YES;
@@ -269,11 +271,7 @@
     _loginBtn.hidden = YES;
     _textBtn.hidden = YES;
     
-    //
-//        _shadowView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 300)];
-//        _shadowView.backgroundColor = [UIColor whiteColor];
-//         [self.view addSubview:_shadowView];
-    
+
     
     //输入框前面的图标
     _imageAccount = [[UIImageView alloc] initWithFrame:CGRectMake(18, _titleBtn.bottom + 50,22,22)];
@@ -321,6 +319,32 @@
     _lineTwo.backgroundColor = [GVColor hexStringToColor:@"#eeeeee"];
     [self.view addSubview:_lineTwo];
     
+    //找回密码按钮
+   
+    _findPassword = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth -85 -12, _line.top + 30, 85 , 24)];
+    
+    [_findPassword setTitle:@"找回密码" forState:UIControlStateNormal];
+    [_findPassword setTitleColor:[GVColor hexStringToColor:@"#ffba14"] forState:UIControlStateNormal];
+    [_findPassword addTarget:self action:@selector(findPasswordClick) forControlEvents:UIControlEventTouchUpInside];
+    _findPassword.titleLabel.font = [UIFont systemFontOfSize:12];
+    [self.view addSubview:_findPassword];
+    
+    //记住密码
+    _findPassword = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth -85 -12, _lineTwo.top + 10, 85 , 24)];
+    [_findPassword setTitle:@"记住密码" forState:UIControlStateNormal];
+    [_findPassword setTitleColor:[GVColor hexStringToColor:@"#999999"] forState:UIControlStateNormal];
+    _findPassword.titleLabel.font = [UIFont systemFontOfSize:12];
+    [self.view addSubview:_findPassword];
+    
+    //实空心圆
+//    _circularBtn = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth -85 -12, _lineTwo.top + 17, 10 , 10)];
+//  
+//    [_circularBtn setImage:[UIImage imageNamed:@"up"] forState:UIControlStateNormal];
+//    [_circularBtn addTarget:self action:@selector(circularClickBtn) forControlEvents:UIControlEventTouchUpOutside];
+//    [_theScrollView addSubview:_circularBtn];
+    
+    
+    
     //登录按钮
     _longinBtnTwo = [[UIButton alloc] initWithFrame:CGRectMake((ScreenWidth-225)/2, _lineTwo.bottom + 50, 225 , 33)];
     [_longinBtnTwo setTitle:@"登录" forState:UIControlStateNormal];
@@ -330,8 +354,16 @@
     _longinBtnTwo.layer.masksToBounds = YES;
     _longinBtnTwo.titleLabel.font = [UIFont systemFontOfSize:17];
     [self.view addSubview:_longinBtnTwo];
+    
+    
+    
 }
-
+-(void)findPasswordClick{
+    
+    findPassWordViewController *find = [[findPassWordViewController alloc] init];
+    [self.navigationController pushViewController:find animated:YES];
+    
+}
 //导航设置
 - (void)setNav{
     
@@ -353,6 +385,7 @@
     
     self.navigationItem.leftBarButtonItem=backBtn;
 }
+
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     
