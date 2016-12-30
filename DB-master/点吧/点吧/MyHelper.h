@@ -1,30 +1,14 @@
+
 //
-//  AllFrame.pch
+//  LoginViewController.h
 //  点吧
 //
-//  Created by Jerry on 2016/12/28.
+//  Created by Jenny on 2016/12/28.
 //  Copyright © 2016年 OneGroup. All rights reserved.
-//
 
-#ifndef AllFrame_pch
-#define AllFrame_pch
 
-#endif /* AllFrame_pch */
-#import "UIView+Addition.m"
-
-//换算尺寸
-#define SIZE(size,type) (size*72.0/type)
-#import "GVColor.h"
-//屏幕尺寸
-#define FrameBounds [UIScreen mainScreen].bounds
-#define WidthBounds [UIScreen mainScreen].bounds.size.width
-#define HeightBounds [UIScreen mainScreen].bounds.size.height
-
-//坐标为0
-#define ZeroFrame 0
-
-//字体颜色
-#define FontColor GVColor hexStringToColor:@"#333333"
+#ifndef UIControlDemo_MyHelper_h
+#define UIControlDemo_MyHelper_h
 
 #define Default 44
 
@@ -49,3 +33,10 @@
 #define LDColorHex(c) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:((c)&0xFF)/255.0 alpha:1.0]
 
 #define BASECOLOR [UIColor colorWithRed:1 green:.78 blue:.27 alpha:1]
+
+#endif
+
+
+
+
+
