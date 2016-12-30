@@ -10,7 +10,9 @@
 #define AllFrame_pch
 
 #endif /* AllFrame_pch */
-#import "UIView+Addition.m"
+#import "UIView+Addition.h"
+#import <SVProgressHUD.h>
+
 
 //换算尺寸
 #define SIZE(size,type) (size*72.0/type)

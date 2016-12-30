@@ -46,6 +46,8 @@
 		BA6567E81E14A2130075E865 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6567E71E14A2130075E865 /* LoginViewController.m */; };
 		BA6567EC1E14A2570075E865 /* UIView+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6567EB1E14A2570075E865 /* UIView+Addition.m */; };
 		BA6DB9C71E15FD08002622C8 /* findPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6DB9C61E15FD08002622C8 /* findPassWordViewController.m */; };
+		BA6DB9CB1E1670AC002622C8 /* NetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6DB9CA1E1670AC002622C8 /* NetworkRequest.m */; };
+		BA6DB9D01E1679C4002622C8 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6DB9CF1E1679C4002622C8 /* NSString+MD5.m */; };
 		E577246B9BE24E07A8D0F9EB /* libPods-点吧.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5C5178484910B1DEA3C0B0 /* libPods-点吧.a */; };
 /* End PBXBuildFile section */
 
@@ -144,6 +146,10 @@
 		BA6DB9C41E15FCEA002622C8 /* MyHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyHelper.h; sourceTree = "<group>"; };
 		BA6DB9C51E15FD08002622C8 /* findPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = findPassWordViewController.h; sourceTree = "<group>"; };
 		BA6DB9C61E15FD08002622C8 /* findPassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = findPassWordViewController.m; sourceTree = "<group>"; };
+		BA6DB9C91E1670AC002622C8 /* NetworkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkRequest.h; sourceTree = "<group>"; };
+		BA6DB9CA1E1670AC002622C8 /* NetworkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkRequest.m; sourceTree = "<group>"; };
+		BA6DB9CE1E1679C4002622C8 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		BA6DB9CF1E1679C4002622C8 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 		EA52085683AD0039D6D1EE09 /* libPods-点吧UITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-点吧UITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -292,6 +298,8 @@
 			isa = PBXGroup;
 			children = (
 				BA6DB9C41E15FCEA002622C8 /* MyHelper.h */,
+				BA6DB9CE1E1679C4002622C8 /* NSString+MD5.h */,
+				BA6DB9CF1E1679C4002622C8 /* NSString+MD5.m */,
 				BA6567EA1E14A2570075E865 /* UIView+Addition.h */,
 				BA6567EB1E14A2570075E865 /* UIView+Addition.m */,
 				1565FD5D1E1236D800C68872 /* AFNManager.h */,
@@ -331,6 +339,7 @@
 				158D9E401E113AC800B0FFB5 /* TakeAway(外卖) */,
 				158D9E411E113AE900B0FFB5 /* Order(订单) */,
 				158D9E421E113B0700B0FFB5 /* MySelf(我的) */,
+				BA6DB9C81E16708C002622C8 /* NetWork */,
 				0DF158AB1E124828008142D6 /* 业务处理 */,
 				158D9E2B1E11395500B0FFB5 /* MainViewController.h */,
 				158D9E2C1E11395500B0FFB5 /* MainViewController.m */,
@@ -420,6 +429,15 @@
 				BA6DB9C61E15FD08002622C8 /* findPassWordViewController.m */,
 			);
 			name = "MySelf(我的)";
+			sourceTree = "<group>";
+		};
+		BA6DB9C81E16708C002622C8 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				BA6DB9C91E1670AC002622C8 /* NetworkRequest.h */,
+				BA6DB9CA1E1670AC002622C8 /* NetworkRequest.m */,
+			);
+			name = NetWork;
 			sourceTree = "<group>";
 		};
 		C2DBAB6040977C27C8EAF5C3 /* Pods */ = {
@@ -650,8 +668,10 @@
 				152C96621E149BE5006BF716 /* TopScroll.m in Sources */,
 				158D9E2D1E11395500B0FFB5 /* MainViewController.m in Sources */,
 				152C965D1E149BC4006BF716 /* OrderViewController.m in Sources */,
+				BA6DB9CB1E1670AC002622C8 /* NetworkRequest.m in Sources */,
 				0DF158AA1E12473E008142D6 /* HomeView.m in Sources */,
 				BA6DB9C71E15FD08002622C8 /* findPassWordViewController.m in Sources */,
+				BA6DB9D01E1679C4002622C8 /* NSString+MD5.m in Sources */,
 				158D9E361E113A5900B0FFB5 /* TakeAwayViewController.m in Sources */,
 				0DA3F60C1E13A04A00E2E030 /* PopoverViewCell.m in Sources */,
 				0D4421511E12861A00B31284 /* UILabel+LabelFrame.m in Sources */,

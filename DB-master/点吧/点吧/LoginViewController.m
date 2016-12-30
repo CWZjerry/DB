@@ -11,6 +11,8 @@
 #import "MyHelper.h"
 #import "UIView+Addition.h"
 #import "findPassWordViewController.h"
+#import "NetworkRequest.h"
+#import "NSString+MD5.h"
 
 @interface LoginViewController ()<UITextFieldDelegate,UIScrollViewAccessibilityDelegate,UIScrollViewDelegate>
 
@@ -62,6 +64,9 @@
 
 @property (nonatomic ,strong) UIButton *circularBtn;
 
+
+@property (nonatomic, assign) BOOL isUserEmpty;
+@property (nonatomic, assign) BOOL isPasswordEmpty;
 
 @end
 
@@ -215,6 +220,7 @@
     _loginBtn.layer.cornerRadius = 16.5;
     _loginBtn.layer.masksToBounds = YES;
     _loginBtn.titleLabel.font = [UIFont systemFontOfSize:17];
+    [_loginBtn addTarget:self action:@selector(longinclick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_loginBtn];
     
 }
@@ -287,7 +293,8 @@
     _userNameC = [[UITextField alloc]initWithFrame:CGRectMake(50, _titleBtn.bottom + 40, ScreenWidth - 80, 40)];
     _userNameC.delegate = self;
     _userNameC.keyboardType = UITextBorderStyleLine;
-    
+    _userNameC.autocorrectionType = NO;
+    _userNameC.autocapitalizationType = NO;
     _userNameC.placeholder = @"请输入您的账号";
     _userNameC.textColor = [GVColor hexStringToColor:@"#bbbbbb"];
     
@@ -353,11 +360,76 @@
     _longinBtnTwo.layer.cornerRadius = 16.5;
     _longinBtnTwo.layer.masksToBounds = YES;
     _longinBtnTwo.titleLabel.font = [UIFont systemFontOfSize:17];
+    [_longinBtnTwo addTarget:self action:@selector(loginaa) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.view addSubview:_longinBtnTwo];
     
     
     
 }
+-(void)loginaa{
+    //先判断输入框是否有内容
+    if (_userNameC.text.length ==  0 ) {
+        [SVProgressHUD showErrorWithStatus:@"请输入账号"];
+        [self performSelector:@selector(dismiss) withObject:nil afterDelay:3];
+        return;
+    }
+    
+    if (_passwordC.text.length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请输入密码"];
+        [self performSelector:@selector(dismiss) withObject:nil afterDelay:3];
+        return;
+    }
+#define JudegPhone @"http://www.kdiana.com/index.php/Home/Seller/login"
+    NSLog(@"md5%@",[NSString md5:_password.text]);
+    NSDictionary *param = @{@"username":_userNameC.text,
+                            @"password":[NSString md5:_password.text],
+                            @"validate":@""};
+    __block NSDictionary *result = nil;
+    [[NetworkRequest shareInstance] POST:JudegPhone parameters:param Success:^(NSDictionary *success) {
+        NSLog(@"success = %@",success);
+        result = success;
+    } Failure:^(id failure) {
+        NSLog(@"error = %@",failure);
+    }];
+    if (result) {
+        if ([result[@"code"] isEqualToString:@"005"]) {
+            [SVProgressHUD showErrorWithStatus:@"密码错误"];
+            [self performSelector:@selector(dismiss) withObject:nil afterDelay:3];
+            return;
+        }
+        if ([result[@"code"] isEqualToString:@"004"]) {
+            [SVProgressHUD showErrorWithStatus:@"账号不存在"];
+            [self performSelector:@selector(dismiss) withObject:nil afterDelay:3];
+            return;
+        }
+        if ([result[@"code"] isEqualToString:@"10008"]) {
+            [SVProgressHUD showErrorWithStatus:@"验证码错误"];
+            [self performSelector:@selector(dismiss) withObject:nil afterDelay:3];
+            return;
+        }
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
+    
+    
+}
+
+-(void)longinclick{
+    
+}
+-(void)dismissAA{
+    
+  [SVProgressHUD dismiss];
+  [SVProgressHUD showSuccessWithStatus:@"登录成功"];
+    [self.navigationController popViewControllerAnimated:YES];
+  
+}
+-(void)dismiss{
+   [SVProgressHUD dismiss];
+}
+
 -(void)findPasswordClick{
     
     findPassWordViewController *find = [[findPassWordViewController alloc] init];

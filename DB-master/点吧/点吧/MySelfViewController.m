@@ -19,11 +19,14 @@
 
 @property (nonatomic, strong) UIView *headView;
 
-@property (nonatomic, strong) UIView *footView;
 
 @property (nonatomic, strong) NSArray *listArr;
 
 @property (nonatomic, strong) NSArray *slistArr;
+
+@property (nullable ,strong) UIButton *topLine;
+
+@property (nonatomic ,strong) UIButton *middleLine;
 
 @end
 
@@ -39,7 +42,7 @@
     
     _listArr = [NSArray arrayWithObjects:@"我的积分",@"我的收货地址", nil];
     _slistArr = [NSArray arrayWithObjects:@"加盟合作",@"关于我们",@"意见反馈", nil];
-    //    _listArr = @[@[@"我的积分",@"我的收货地址"],@[@"加盟合作",@"关于我们",@"意见反馈"]];
+  
     
     
     [self setTableView];
@@ -108,24 +111,13 @@
         
     }
     return cell;
-    
-    
-    
-    
-    //    cell.textLabel.text = _listArr[indexPath.row];
-    //    cell.textLabel.font = [UIFont systemFontOfSize:15 weight:0];
-    //    cell.textLabel.textColor = [UIColor colorWithRed:199/255.0 green:199/255.0 blue:199/255.0 alpha:1.0];
-    //
-    //
-    
-    
-    //    return cell;
+ 
 }
 
 -(UIView *)headViewW{
     
     
-    self.headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,ScreenWidth, 320)];
+    self.headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,ScreenWidth, 290)];
     self.headView.backgroundColor = [UIColor whiteColor];
     UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0,self.view.frame.size.width , 164)];
     image.image = [UIImage imageNamed:@"background_"];
@@ -147,27 +139,32 @@
     headLabel.font = [UIFont systemFontOfSize:17 weight:1.5];
     [self.headView addSubview:headLabel];
     
-    UIButton *middleLine = [[UIButton alloc]initWithFrame:CGRectMake(ScreenWidth/2,  200, 0.5, 56)];
-    [middleLine setBackgroundColor:[UIColor colorWithRed:191/255.0 green:191/255.0 blue:191/255.0 alpha:1.0]];
-    [self.headView addSubview:middleLine];
+   _middleLine = [[UIButton alloc]initWithFrame:CGRectMake(ScreenWidth/2,  200, 0.5, 56)];
+    [_middleLine setBackgroundColor:[UIColor colorWithRed:191/255.0 green:191/255.0 blue:191/255.0 alpha:1.0]];
+    [self.headView addSubview:_middleLine];
     
-    UIButton *topLine=[[UIButton alloc]initWithFrame:CGRectMake(0, 193, ScreenWidth, 0.5)];
-    [topLine setBackgroundColor:[UIColor colorWithRed:191/255.0 green:191/255.0 blue:191/255.0 alpha:0.5]];
-    [self.headView addSubview:topLine];
+    _topLine=[[UIButton alloc]initWithFrame:CGRectMake(0, 193, ScreenWidth, 0.5)];
+    [_topLine setBackgroundColor:[UIColor colorWithRed:191/255.0 green:191/255.0 blue:191/255.0 alpha:0.5]];
+    [self.headView addSubview:_topLine];
     
+    UIButton *purseBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 10, ScreenWidth/2, 84)];
+    UIImageView *purseImage = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth/2-110, _topLine.bottom + 10 , 33, 28)];
     
-    //        UIButton *purseBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 195, 187, 56)];
-    //
-    //        UIImageView *purseImage = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth/2+16.5, 0, , )];
-    //
-    //        purseImage.image = [UIImage imageNamed:@"wallet"];
-    //        [self.headView addSubview:image];
-    //        UILabel *purseLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 153, ScreenWidth - 20, 20)];
-    //        purseLabel.text = @"我的钱包";
-    //        purseLabel.textAlignment = NSTextAlignmentCenter;
-    //        purseLabel.textColor = [UIColor colorWithHue:0.00 saturation:0.00 brightness:0.00 alpha:1.00];
-    //        purseLabel.font = [UIFont systemFontOfSize:17 weight:1.5];
-    //        [self.headView addSubview:purseLabel];
+    purseImage.image = [UIImage imageNamed:@"wallet"];
+    [purseBtn addSubview:purseImage];
+    
+    UILabel *purseLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, _topLine.bottom + 10 + 28 + 13, ScreenWidth/2 - 20, 20)];
+    purseLabel.text = @"我的钱包";
+    purseLabel.textAlignment = NSTextAlignmentCenter;
+    purseLabel.textColor = [GVColor hexStringToColor:@"888888"];
+//    purseLabel.font = [UIFont systemFontOfSize:17 weight:1.5];
+    [purseBtn addSubview:purseLabel];
+
+    [self.headView addSubview:purseBtn];
+    
+
+
+    
     //
     //
     //
@@ -185,7 +182,9 @@
     //        [self.headView addSubview:discountBtn];
     //
     
-    
+    UIButton *discountBtn = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth/2+10, _topLine.bottom + 5, ScreenWidth/2, 84)];
+//    discountBtn.backgroundColor = [UIColor grayColor];
+    [self.headView addSubview:discountBtn];
     
     
     

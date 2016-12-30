@@ -106,11 +106,46 @@
     _loginBtn.layer.cornerRadius = 16.5;
     _loginBtn.layer.masksToBounds = YES;
     _loginBtn.titleLabel.font = [UIFont systemFontOfSize:17];
+     [_loginBtn addTarget:self action:@selector(longinclick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_loginBtn];
     
     
     
 }
+
+-(void)longinclick{
+    
+    if (_userName.text.length<=0 &&_password.text.length<=0)
+    {
+        [SVProgressHUD showErrorWithStatus:@"请输入手机号和验证码"];
+        [self performSelector:@selector(dismiss) withObject:nil afterDelay:3];
+        
+    }
+    
+    else if (_userName.text.length<=0 &&_password.text.length>0)
+    {
+        [SVProgressHUD showErrorWithStatus:@"请输入手机号"];
+        [self performSelector:@selector(dismiss) withObject:nil afterDelay:3];
+    }
+    else if (_userName.text.length>0 &&_password.text.length<=0)
+    {
+        [SVProgressHUD showErrorWithStatus:@"请输入验证码"];
+        [self performSelector:@selector(dismiss) withObject:nil afterDelay:3];
+    }
+    else
+    {
+        [SVProgressHUD showWithStatus:@"正在登录..." maskType:SVProgressHUDMaskTypeCustom];
+        [self performSelector:@selector(dismissAA) withObject:nil afterDelay:3];
+    }
+}
+-(void)dismissAA{
+    
+    [SVProgressHUD dismiss];
+    [SVProgressHUD showSuccessWithStatus:@"登录成功"];
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
 
 //导航设置
 - (void)setNav{
