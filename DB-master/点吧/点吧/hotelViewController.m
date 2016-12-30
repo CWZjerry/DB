@@ -11,22 +11,40 @@
 #import "UILabel+LabelFrame.h"
 #import "hoteTableViewCell.h"
 #import "HomeViewController.h"
-@interface hotelViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
-{
-    UISwipeGestureRecognizer *swipeLeft;
-}
+#import "ThrowLineTool.h"
+#import "sideTableViewCell.h"
+@interface hotelViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,ThrowLineToolDelegate,hotelDelegate>
+
 @property(nonatomic,strong) UITableView * hotelTableView;
-@property(nonatomic,strong) UIView *navigationView;
+@property(nonatomic,strong) UISwipeGestureRecognizer*swipeLeft;
+@property(nonatomic,strong) UIView *navigationView;//代替导航View
+@property(nonatomic,strong) UIView * animationView;//小红点动画View
+@property(nonatomic,strong) UIImageView *moneyImg;
+@property(nonatomic,strong) UILabel *moneyLabel;//结算总数
+@property(nonatomic,strong) UILabel *countLabel; //购物数量
+@property(nonatomic,strong) UIImageView *shopImg; //购物车图片
+@property(nonatomic,strong) UITableView *sideTableView;//侧滑tableView
+@property(nonatomic,assign) BOOL isSide;
+
 @end
 
 @implementation hotelViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    
+    [self.view addSubview:_animationView];//动画红点view
+
+    [ThrowLineTool sharedTool].delegate=self;//签单例代理
     
     [self.view addSubview:self.hotelTableView];
+    [self.view addSubview:self.sideTableView];
     [self sideBtn];
+    [self shopBtn];
     [self.view addSubview:self.navigationView];
+    
+    
 }
 #pragma mark --侧滑按钮
 -(void)sideBtn
@@ -34,7 +52,84 @@
     UIButton *sideBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     sideBtn.frame=CGRectMake(ZeroFrame, HeightBounds/2-40, 26, 80);
     [sideBtn setImage:[UIImage imageNamed:@"rowing_to_starboard"] forState:UIControlStateNormal];
+    [sideBtn addTarget:self action:@selector(sideClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:sideBtn];
+}
+
+//侧滑缩放
+-(void)sideClick:(UIButton *)sender
+{
+    if(self.isSide == NO)
+    {
+        [UIView animateWithDuration:0.5 animations:^{
+            //设置平移量
+            self.hotelTableView.transform = CGAffineTransformMakeTranslation(235, 0);
+            self.sideTableView.transform = CGAffineTransformMakeTranslation(235, 0);
+            
+        }];
+        self.isSide = YES;
+    }
+    else
+    {
+        [UIView animateWithDuration:0.5 animations:^{
+            //操作之后进行还原
+            self.hotelTableView.transform =CGAffineTransformIdentity;
+            self.sideTableView.transform = CGAffineTransformIdentity;
+            
+        }];
+        self.isSide = NO;
+    }
+   
+}
+#pragma mark -- 侧滑tableView
+-(UITableView *)sideTableView
+{
+    if(_sideTableView == nil)
+    {
+        _sideTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, -235, HeightBounds) style:UITableViewStylePlain];
+        _sideTableView.delegate =self;
+        _sideTableView.dataSource =self;
+        _sideTableView.contentInset = UIEdgeInsetsMake(0, 0, -64, 0);
+        //设置tableView背景图为uiimage
+        UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"peking"]];
+        [_sideTableView addSubview:imageView];
+        //设置tableView不显示多余的空cell
+        _sideTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    }
+    return _sideTableView;
+}
+-(void)shopBtn
+{
+    _moneyImg = [[UIImageView alloc]initWithFrame:CGRectMake(WidthBounds-128, HeightBounds-38, 90, 22)];
+    _moneyImg.image = [UIImage imageNamed:@"money"];
+    [self.view addSubview:_moneyImg];
+    
+    //结算总数
+    NSString *str = @"1200.00";
+    _moneyLabel = [[UILabel alloc]init];
+    _moneyLabel.textColor = [GVColor hexStringToColor:@"#333333"];
+    _moneyLabel.text = [NSString stringWithFormat:@"￥%@",str];
+    _moneyLabel.font = [UIFont systemFontOfSize:12];
+    CGFloat widthLabel = [UILabel getWidthWithTitle:_moneyLabel.text font:_moneyLabel.font];
+    _moneyLabel.frame = CGRectMake(5, 5, widthLabel, 12);
+    [_moneyImg addSubview:_moneyLabel];
+    
+    //购物车图片
+    _shopImg = [[UIImageView alloc]initWithFrame:CGRectMake(WidthBounds-70, HeightBounds-71, 61, 61)];
+    _shopImg.image = [UIImage imageNamed:@"shopping_cart"];
+    [self.view addSubview:_shopImg];
+    
+    //购物数量
+    _countLabel = [[UILabel alloc]initWithFrame:CGRectMake(35, 13, 14, 14)];
+    _countLabel.backgroundColor = [UIColor redColor];
+    _countLabel.layer.cornerRadius = 7;
+    _countLabel.layer.borderWidth = 0;
+    _countLabel.layer.masksToBounds = YES;
+    _countLabel.textAlignment = NSTextAlignmentCenter;
+    _countLabel.hidden = YES;//是否将其隐藏
+    _countLabel.textColor = [GVColor hexStringToColor:@"#ffffff"];
+    _countLabel.font = [UIFont systemFontOfSize:11];
+    [_shopImg addSubview:_countLabel];
 }
 #pragma mark -- 头视图控件
 -(UIView *)headNavigation
@@ -42,9 +137,9 @@
     UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(ZeroFrame, ZeroFrame, WidthBounds, 141)];
     headView.userInteractionEnabled = YES;//开启用户交互
     //添加侧滑手势
-    swipeLeft = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(leftSide)];
-    swipeLeft.direction = UISwipeGestureRecognizerDirectionRight;
-    [headView addGestureRecognizer:swipeLeft];
+    _swipeLeft = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(leftSide)];
+    _swipeLeft.direction = UISwipeGestureRecognizerDirectionRight;
+    [headView addGestureRecognizer:_swipeLeft];
     
     //店铺背景图
     UIImageView *bgImgView = [[UIImageView alloc] initWithFrame:CGRectMake(ZeroFrame, ZeroFrame, WidthBounds, 141)];
@@ -128,24 +223,107 @@
 #pragma mark -- tableViewDatasoure
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 92;
+    if([tableView isEqual:self.hotelTableView])
+    {
+       return 92;
+    }
+    else
+    {
+        return 45;
+    }
+    
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 10;
+    if([tableView isEqual:self.hotelTableView])
+    {
+        return 10;
+    }
+    return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    if([tableView isEqual:self.hotelTableView])
+    {
+        return 3;
+    }
+    else
+    {
+        return 3;
+    }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   static NSString * hoteStr =@"hoteTableViewCell";
-    hoteTableViewCell * cell =[tableView dequeueReusableCellWithIdentifier:hoteStr];
-
-    return cell;
+    if([tableView isEqual:self.hotelTableView])
+    {
+        static NSString * hoteStr =@"hoteTableViewCell";
+        hoteTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:hoteStr];
+        if (cell == nil) {
+            
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"hoteTableViewCell" owner:self options:nil]lastObject];
+        }
+        cell.delegate=self;
+        cell.textFieldNum.userInteractionEnabled = NO;//关闭用户交互
+        //隐藏选择状态
+        cell.selectionStyle = 0;
+        //隐藏按钮
+        [cell.leftBtn setHidden:YES];
+        //隐藏label
+        if(cell.textFieldNum.text.integerValue <0)
+        {
+            [cell.textFieldNum setHidden:YES];
+        }
+        return cell;
+    }
+    else
+    {
+        static NSString * sideStr =@"sideTableViewCell";
+        sideTableViewCell *sideCell =[tableView dequeueReusableCellWithIdentifier:sideStr];
+        if (sideCell == nil) {
+            
+            sideCell = [[[NSBundle mainBundle] loadNibNamed:@"sideTableViewCell" owner:self options:nil]lastObject];
+        }
+        sideCell.backgroundColor = [UIColor clearColor];
+        return sideCell;
+    }
+}
+//加➕
+-(void)rightNewHotelTableViewCell:(hoteTableViewCell *)rightHoteCell
+{
+    //隐藏按钮
+    rightHoteCell.leftBtn.hidden =NO;
+    rightHoteCell.textFieldNum.text = [NSString stringWithFormat:@"%ld",(rightHoteCell.textFieldNum.text.integerValue +1)];
+    self.countLabel.text = rightHoteCell.textFieldNum.text;
+    self.countLabel.hidden = self.countLabel.text.integerValue == 0;//text值为空的时候隐藏
+    [self.view addSubview:self.animationView];
+    [[ThrowLineTool sharedTool]throwObject:self.animationView from:self.animationView.center to:self.shopImg.center height:-300 duration:0.4];
+}
+//➖
+-(void)leftNewHotelTableViewCell:(hoteTableViewCell *)leftHoteCell
+{
+    leftHoteCell.textFieldNum.text = [NSString stringWithFormat:@"%ld",(leftHoteCell.textFieldNum.text.integerValue -1) > 0 ? (leftHoteCell.textFieldNum.text.integerValue -1) :0];
+    self.countLabel.text = leftHoteCell.textFieldNum.text;
+    self.countLabel.hidden = self.countLabel.text.integerValue == 0;//text值为空的时候隐藏
+    //为空的时候隐藏按钮
+    leftHoteCell.leftBtn.hidden =self.countLabel.text.integerValue == 0;
+    leftHoteCell.textFieldNum.hidden = self.countLabel.text.integerValue == 0;
 }
 
+//抛物线结束的回调
+-(void)animationDidFinish
+{
+    [self.animationView removeFromSuperview];
+    [UIView animateWithDuration:0.1 animations:^{
+        _shopImg.transform = CGAffineTransformMakeScale(0.8, 0.8);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.1 animations:^{
+            _shopImg.transform = CGAffineTransformMakeScale(1, 1);
+            
+        } completion:^(BOOL finished) {
+            
+        }];
+    }];
+}
 //渐变(改变透明度)
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -167,7 +345,7 @@
         _hotelTableView.delegate = self;
         _hotelTableView.dataSource =self;
         _hotelTableView.tableHeaderView = [self headNavigation];//头视图
-        [_hotelTableView registerNib:[UINib nibWithNibName:NSStringFromClass([hoteTableViewCell class]) bundle:nil] forCellReuseIdentifier:@"hoteTableViewCell"];
+//        [_hotelTableView registerNib:[UINib nibWithNibName:NSStringFromClass([hoteTableViewCell class]) bundle:nil] forCellReuseIdentifier:@"hoteTableViewCell"];
     }
     return _hotelTableView;
 }
@@ -192,4 +370,18 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+#pragma mark -- 购物车红点动画View
+-(UIView *)animationView
+{
+    if(_animationView == nil)
+    {
+        _animationView = [[UILabel alloc]initWithFrame:CGRectMake(0, HeightBounds/2, 14, 14)];
+        _animationView.backgroundColor = [UIColor redColor];
+        _animationView.layer.cornerRadius = 7;
+        _animationView.layer.borderWidth = 0;
+        _animationView.layer.masksToBounds = YES;
+    }
+    return _animationView;
+}
+
 @end

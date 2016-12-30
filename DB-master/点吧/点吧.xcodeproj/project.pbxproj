@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		0D0271FA1E13432E00D3D350 /* headerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0271F81E13432E00D3D350 /* headerCollectionViewCell.m */; };
 		0D4421511E12861A00B31284 /* UILabel+LabelFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4421501E12861A00B31284 /* UILabel+LabelFrame.m */; };
+		0D85E1961E16102B00138DFA /* ThrowLineTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D85E1951E16102B00138DFA /* ThrowLineTool.m */; };
 		0DA3F5F71E1389C600E2E030 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA3F5F51E1389C600E2E030 /* HomeTableViewCell.m */; };
 		0DA3F5F81E1389C600E2E030 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DA3F5F61E1389C600E2E030 /* HomeTableViewCell.xib */; };
 		0DA3F60A1E13A04A00E2E030 /* PopoverAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA3F6051E13A04A00E2E030 /* PopoverAction.m */; };
 		0DA3F60B1E13A04A00E2E030 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA3F6071E13A04A00E2E030 /* PopoverView.m */; };
 		0DA3F60C1E13A04A00E2E030 /* PopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA3F6091E13A04A00E2E030 /* PopoverViewCell.m */; };
+		0DAA56841E168B5C00A7715B /* sideTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DAA56821E168B5C00A7715B /* sideTableViewCell.m */; };
+		0DAA56851E168B5C00A7715B /* sideTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DAA56831E168B5C00A7715B /* sideTableViewCell.xib */; };
 		0DC495BC1E13CDC700537686 /* GPSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC495BB1E13CDC700537686 /* GPSViewController.m */; };
 		0DC495BF1E148EBA00537686 /* hotelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC495BE1E148EBA00537686 /* hotelViewController.m */; };
 		0DC495C61E14E00C00537686 /* 577.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DC495C51E14E00C00537686 /* 577.jpg */; };
@@ -71,6 +74,8 @@
 		0D0271F81E13432E00D3D350 /* headerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = headerCollectionViewCell.m; sourceTree = "<group>"; };
 		0D44214F1E12861A00B31284 /* UILabel+LabelFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+LabelFrame.h"; sourceTree = "<group>"; };
 		0D4421501E12861A00B31284 /* UILabel+LabelFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LabelFrame.m"; sourceTree = "<group>"; };
+		0D85E1941E16102B00138DFA /* ThrowLineTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThrowLineTool.h; sourceTree = "<group>"; };
+		0D85E1951E16102B00138DFA /* ThrowLineTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThrowLineTool.m; sourceTree = "<group>"; };
 		0DA3F5F41E1389C600E2E030 /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
 		0DA3F5F51E1389C600E2E030 /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
 		0DA3F5F61E1389C600E2E030 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
@@ -80,6 +85,9 @@
 		0DA3F6071E13A04A00E2E030 /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
 		0DA3F6081E13A04A00E2E030 /* PopoverViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewCell.h; sourceTree = "<group>"; };
 		0DA3F6091E13A04A00E2E030 /* PopoverViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewCell.m; sourceTree = "<group>"; };
+		0DAA56811E168B5C00A7715B /* sideTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sideTableViewCell.h; sourceTree = "<group>"; };
+		0DAA56821E168B5C00A7715B /* sideTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sideTableViewCell.m; sourceTree = "<group>"; };
+		0DAA56831E168B5C00A7715B /* sideTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = sideTableViewCell.xib; sourceTree = "<group>"; };
 		0DC495BA1E13CDC700537686 /* GPSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSViewController.h; sourceTree = "<group>"; };
 		0DC495BB1E13CDC700537686 /* GPSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSViewController.m; sourceTree = "<group>"; };
 		0DC495BD1E148EBA00537686 /* hotelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hotelViewController.h; sourceTree = "<group>"; };
@@ -214,11 +222,24 @@
 			path = PopoverView;
 			sourceTree = "<group>";
 		};
+		0DAA56801E1684A700A7715B /* 抛物点动画 */ = {
+			isa = PBXGroup;
+			children = (
+				0D85E1941E16102B00138DFA /* ThrowLineTool.h */,
+				0D85E1951E16102B00138DFA /* ThrowLineTool.m */,
+			);
+			name = "抛物点动画";
+			sourceTree = "<group>";
+		};
 		0DC495C01E148EC100537686 /* 饭店 */ = {
 			isa = PBXGroup;
 			children = (
+				0DAA56801E1684A700A7715B /* 抛物点动画 */,
 				0DC495BD1E148EBA00537686 /* hotelViewController.h */,
 				0DC495BE1E148EBA00537686 /* hotelViewController.m */,
+				0DAA56811E168B5C00A7715B /* sideTableViewCell.h */,
+				0DAA56821E168B5C00A7715B /* sideTableViewCell.m */,
+				0DAA56831E168B5C00A7715B /* sideTableViewCell.xib */,
 				0DC495C71E15202F00537686 /* hoteTableViewCell.h */,
 				0DC495C81E15202F00537686 /* hoteTableViewCell.m */,
 				0DC495C91E15202F00537686 /* hoteTableViewCell.xib */,
@@ -556,6 +577,7 @@
 				0DA3F5F81E1389C600E2E030 /* HomeTableViewCell.xib in Resources */,
 				158D9E081E11391700B0FFB5 /* LaunchScreen.storyboard in Resources */,
 				0DE95E171E1336B3008C762F /* img1.png in Resources */,
+				0DAA56851E168B5C00A7715B /* sideTableViewCell.xib in Resources */,
 				0DE95E181E1336B3008C762F /* img2.png in Resources */,
 				0DF158951E121E80008142D6 /* searchbar_textfield_background_os7@2x.png in Resources */,
 				158D9E051E11391700B0FFB5 /* Assets.xcassets in Resources */,
@@ -652,9 +674,11 @@
 				152C965D1E149BC4006BF716 /* OrderViewController.m in Sources */,
 				0DF158AA1E12473E008142D6 /* HomeView.m in Sources */,
 				BA6DB9C71E15FD08002622C8 /* findPassWordViewController.m in Sources */,
+				0D85E1961E16102B00138DFA /* ThrowLineTool.m in Sources */,
 				158D9E361E113A5900B0FFB5 /* TakeAwayViewController.m in Sources */,
 				0DA3F60C1E13A04A00E2E030 /* PopoverViewCell.m in Sources */,
 				0D4421511E12861A00B31284 /* UILabel+LabelFrame.m in Sources */,
+				0DAA56841E168B5C00A7715B /* sideTableViewCell.m in Sources */,
 				158D9E331E113A3400B0FFB5 /* HomeViewController.m in Sources */,
 				BA6567EC1E14A2570075E865 /* UIView+Addition.m in Sources */,
 				0DA3F60A1E13A04A00E2E030 /* PopoverAction.m in Sources */,
