@@ -410,6 +410,7 @@
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
+    //
     return 3;
 }
 //每个section中cell的数量
