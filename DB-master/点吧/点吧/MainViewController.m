@@ -25,12 +25,11 @@
     
     [self setUpController];
     //AFN封装测试
-    NSString * str = @"https://api.weibo.com/2/statuses/home_timeline.json?access_token=2.00DsiAWGOwnFDBf2cc16b96d0Ojl4W";
-    [[AFNManager sharedManager]requestType:GET URL:str withparameters:nil success:^(id data) {
-        NSLog(@"%@",data);
-    } failure:^(NSError *error) {
-        NSLog(@"%@",error);
-    }];
+//    NSString * str = @"https://api.weibo.com/2/statuses/home_timeline.json?access_token=2.00DsiAWGOwnFDBf2cc16b96d0Ojl4W";
+//    [[AFNManager sharedManager]requestType:GET URL:str withparameters:nil success:^(id data) {
+//    } failure:^(NSError *error) {
+//        NSLog(@"%@",error);
+//    }];
     
     
 }
@@ -45,11 +44,11 @@
                           WithTitle:@"外卖"
                           imageName:@"take_down"
                   selectedImageName:@"take_up"];
-    [self addOneChildViewController:[[UINavigationController alloc]initWithRootViewController:[[OrderViewController alloc]init]]
+    [self addOneChildViewController:[[GPSViewController alloc]initWithRootViewController:[[OrderViewController alloc]init]]
                           WithTitle:@"订单"
                           imageName:@"indent_down"
                   selectedImageName:@"indent_up"];
-    [self addOneChildViewController:[[UINavigationController alloc]initWithRootViewController:[[MySelfViewController alloc]init]]
+    [self addOneChildViewController:[[GPSViewController alloc]initWithRootViewController:[[MySelfViewController alloc]init]]
                           WithTitle:@"我的"
                           imageName:@"mine_down"
                   selectedImageName:@"mine_up"];

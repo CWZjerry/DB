@@ -41,6 +41,14 @@
 		158D9E331E113A3400B0FFB5 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 158D9E321E113A3400B0FFB5 /* HomeViewController.m */; };
 		158D9E361E113A5900B0FFB5 /* TakeAwayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 158D9E351E113A5900B0FFB5 /* TakeAwayViewController.m */; };
 		158D9E3C1E113A9800B0FFB5 /* MySelfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 158D9E3B1E113A9800B0FFB5 /* MySelfViewController.m */; };
+		15EAF8E81E14A0D400EDB063 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EAF8E71E14A0D400EDB063 /* DetailsViewController.m */; };
+		15EAF8EB1E14B4DB00EDB063 /* DetailsHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EAF8EA1E14B4DB00EDB063 /* DetailsHead.m */; };
+		15EAF8EE1E14B94D00EDB063 /* TextRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EAF8ED1E14B94D00EDB063 /* TextRect.m */; };
+		15EAF8F41E14DC7F00EDB063 /* DetailsMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EAF8F31E14DC7F00EDB063 /* DetailsMessage.m */; };
+		15EAF8F71E14E85200EDB063 /* VegeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EAF8F61E14E85200EDB063 /* VegeTableViewCell.m */; };
+		15EAF8FA1E151EE100EDB063 /* CostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EAF8F91E151EE100EDB063 /* CostTableViewCell.m */; };
+		15EAF8FD1E1540F000EDB063 /* MoneyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EAF8FC1E1540F000EDB063 /* MoneyView.m */; };
+		15EAF9001E15F6E800EDB063 /* DetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EAF8FF1E15F6E800EDB063 /* DetailsView.m */; };
 		E577246B9BE24E07A8D0F9EB /* libPods-点吧.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5C5178484910B1DEA3C0B0 /* libPods-点吧.a */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +135,22 @@
 		158D9E351E113A5900B0FFB5 /* TakeAwayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakeAwayViewController.m; sourceTree = "<group>"; };
 		158D9E3A1E113A9800B0FFB5 /* MySelfViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySelfViewController.h; sourceTree = "<group>"; };
 		158D9E3B1E113A9800B0FFB5 /* MySelfViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySelfViewController.m; sourceTree = "<group>"; };
+		15EAF8E61E14A0D400EDB063 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		15EAF8E71E14A0D400EDB063 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		15EAF8E91E14B4DB00EDB063 /* DetailsHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsHead.h; sourceTree = "<group>"; };
+		15EAF8EA1E14B4DB00EDB063 /* DetailsHead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsHead.m; sourceTree = "<group>"; };
+		15EAF8EC1E14B94D00EDB063 /* TextRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextRect.h; sourceTree = "<group>"; };
+		15EAF8ED1E14B94D00EDB063 /* TextRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextRect.m; sourceTree = "<group>"; };
+		15EAF8F21E14DC7F00EDB063 /* DetailsMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsMessage.h; sourceTree = "<group>"; };
+		15EAF8F31E14DC7F00EDB063 /* DetailsMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsMessage.m; sourceTree = "<group>"; };
+		15EAF8F51E14E85200EDB063 /* VegeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VegeTableViewCell.h; sourceTree = "<group>"; };
+		15EAF8F61E14E85200EDB063 /* VegeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VegeTableViewCell.m; sourceTree = "<group>"; };
+		15EAF8F81E151EE100EDB063 /* CostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CostTableViewCell.h; sourceTree = "<group>"; };
+		15EAF8F91E151EE100EDB063 /* CostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CostTableViewCell.m; sourceTree = "<group>"; };
+		15EAF8FB1E1540F000EDB063 /* MoneyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoneyView.h; sourceTree = "<group>"; };
+		15EAF8FC1E1540F000EDB063 /* MoneyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyView.m; sourceTree = "<group>"; };
+		15EAF8FE1E15F6E800EDB063 /* DetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsView.h; sourceTree = "<group>"; };
+		15EAF8FF1E15F6E800EDB063 /* DetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsView.m; sourceTree = "<group>"; };
 		624367971C89D6FAA53BACBD /* Pods-点吧.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-点吧.debug.xcconfig"; path = "Pods/Target Support Files/Pods-点吧/Pods-点吧.debug.xcconfig"; sourceTree = "<group>"; };
 		72513B5AB676607BC564AB55 /* libPods-点吧Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-点吧Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F87AB6569E9617A2747B048 /* Pods-点吧.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-点吧.release.xcconfig"; path = "Pods/Target Support Files/Pods-点吧/Pods-点吧.release.xcconfig"; sourceTree = "<group>"; };
@@ -286,6 +310,8 @@
 			children = (
 				1565FD5D1E1236D800C68872 /* AFNManager.h */,
 				1565FD5E1E1236D800C68872 /* AFNManager.m */,
+				15EAF8EC1E14B94D00EDB063 /* TextRect.h */,
+				15EAF8ED1E14B94D00EDB063 /* TextRect.m */,
 			);
 			name = "Tools(工具)";
 			sourceTree = "<group>";
@@ -384,14 +410,11 @@
 		158D9E411E113AE900B0FFB5 /* Order(订单) */ = {
 			isa = PBXGroup;
 			children = (
-				152C96631E149BED006BF716 /* TotalViewController.h */,
-				152C96641E149BED006BF716 /* TotalViewController.m */,
-				152C96661E149BFB006BF716 /* TotalTableViewCell.h */,
-				152C96671E149BFB006BF716 /* TotalTableViewCell.m */,
-				152C96601E149BE5006BF716 /* TopScroll.h */,
-				152C96611E149BE5006BF716 /* TopScroll.m */,
+				15EAF8E41E149FCA00EDB063 /* TopScroll */,
 				152C96571E149BC4006BF716 /* OrderViewController.h */,
 				152C96581E149BC4006BF716 /* OrderViewController.m */,
+				15EAF8E51E14A00900EDB063 /* DetailsViewController */,
+				15EAF8E21E149F6B00EDB063 /* TotalViewController */,
 				152C96591E149BC4006BF716 /* HallViewController.h */,
 				152C965A1E149BC4006BF716 /* HallViewController.m */,
 				152C965B1E149BC4006BF716 /* TakeViewController.h */,
@@ -407,6 +430,79 @@
 				158D9E3B1E113A9800B0FFB5 /* MySelfViewController.m */,
 			);
 			name = "MySelf(我的)";
+			sourceTree = "<group>";
+		};
+		15EAF8E21E149F6B00EDB063 /* TotalViewController */ = {
+			isa = PBXGroup;
+			children = (
+				152C96631E149BED006BF716 /* TotalViewController.h */,
+				152C96641E149BED006BF716 /* TotalViewController.m */,
+				15EAF8E31E149F7800EDB063 /* TotalCell */,
+			);
+			name = TotalViewController;
+			sourceTree = "<group>";
+		};
+		15EAF8E31E149F7800EDB063 /* TotalCell */ = {
+			isa = PBXGroup;
+			children = (
+				152C96661E149BFB006BF716 /* TotalTableViewCell.h */,
+				152C96671E149BFB006BF716 /* TotalTableViewCell.m */,
+			);
+			name = TotalCell;
+			sourceTree = "<group>";
+		};
+		15EAF8E41E149FCA00EDB063 /* TopScroll */ = {
+			isa = PBXGroup;
+			children = (
+				152C96601E149BE5006BF716 /* TopScroll.h */,
+				152C96611E149BE5006BF716 /* TopScroll.m */,
+			);
+			name = TopScroll;
+			sourceTree = "<group>";
+		};
+		15EAF8E51E14A00900EDB063 /* DetailsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				15EAF8F11E14DC1C00EDB063 /* C */,
+				15EAF8F01E14DC1600EDB063 /* V */,
+				15EAF8EF1E14DC0E00EDB063 /* M */,
+			);
+			name = DetailsViewController;
+			sourceTree = "<group>";
+		};
+		15EAF8EF1E14DC0E00EDB063 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = M;
+			sourceTree = "<group>";
+		};
+		15EAF8F01E14DC1600EDB063 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				15EAF8E91E14B4DB00EDB063 /* DetailsHead.h */,
+				15EAF8EA1E14B4DB00EDB063 /* DetailsHead.m */,
+				15EAF8F21E14DC7F00EDB063 /* DetailsMessage.h */,
+				15EAF8F31E14DC7F00EDB063 /* DetailsMessage.m */,
+				15EAF8FB1E1540F000EDB063 /* MoneyView.h */,
+				15EAF8FC1E1540F000EDB063 /* MoneyView.m */,
+				15EAF8F51E14E85200EDB063 /* VegeTableViewCell.h */,
+				15EAF8F61E14E85200EDB063 /* VegeTableViewCell.m */,
+				15EAF8F81E151EE100EDB063 /* CostTableViewCell.h */,
+				15EAF8F91E151EE100EDB063 /* CostTableViewCell.m */,
+				15EAF8FE1E15F6E800EDB063 /* DetailsView.h */,
+				15EAF8FF1E15F6E800EDB063 /* DetailsView.m */,
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		15EAF8F11E14DC1C00EDB063 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				15EAF8E61E14A0D400EDB063 /* DetailsViewController.h */,
+				15EAF8E71E14A0D400EDB063 /* DetailsViewController.m */,
+			);
+			name = C;
 			sourceTree = "<group>";
 		};
 		C2DBAB6040977C27C8EAF5C3 /* Pods */ = {
@@ -624,6 +720,9 @@
 				158D9E3C1E113A9800B0FFB5 /* MySelfViewController.m in Sources */,
 				0DA3F60B1E13A04A00E2E030 /* PopoverView.m in Sources */,
 				152C965F1E149BC4006BF716 /* TakeViewController.m in Sources */,
+				15EAF8EE1E14B94D00EDB063 /* TextRect.m in Sources */,
+				15EAF8FD1E1540F000EDB063 /* MoneyView.m in Sources */,
+				15EAF8EB1E14B4DB00EDB063 /* DetailsHead.m in Sources */,
 				0D0271FA1E13432E00D3D350 /* headerCollectionViewCell.m in Sources */,
 				0DF158981E121E87008142D6 /* GVColor.m in Sources */,
 				1565FD5F1E1236D800C68872 /* AFNManager.m in Sources */,
@@ -633,7 +732,12 @@
 				152C96621E149BE5006BF716 /* TopScroll.m in Sources */,
 				158D9E2D1E11395500B0FFB5 /* MainViewController.m in Sources */,
 				152C965D1E149BC4006BF716 /* OrderViewController.m in Sources */,
+				15EAF9001E15F6E800EDB063 /* DetailsView.m in Sources */,
+				15EAF8E81E14A0D400EDB063 /* DetailsViewController.m in Sources */,
+				15EAF8F71E14E85200EDB063 /* VegeTableViewCell.m in Sources */,
 				0DF158AA1E12473E008142D6 /* HomeView.m in Sources */,
+				15EAF8FA1E151EE100EDB063 /* CostTableViewCell.m in Sources */,
+				15EAF8F41E14DC7F00EDB063 /* DetailsMessage.m in Sources */,
 				158D9E361E113A5900B0FFB5 /* TakeAwayViewController.m in Sources */,
 				0DA3F60C1E13A04A00E2E030 /* PopoverViewCell.m in Sources */,
 				0D4421511E12861A00B31284 /* UILabel+LabelFrame.m in Sources */,
