@@ -246,6 +246,7 @@
 -(CGRect)labelTextRect:(UILabel *)label
 {
     
+    NSLog(@"%@",label);
     
     NSMutableParagraphStyle *paragraphstyle=[[NSMutableParagraphStyle alloc]init];
     paragraphstyle.lineBreakMode=NSLineBreakByCharWrapping;
