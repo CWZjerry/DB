@@ -217,6 +217,14 @@
     _loginBtn.titleLabel.font = [UIFont systemFontOfSize:17];
     [self.view addSubview:_loginBtn];
     
+    
+    //记住密码
+    _findPassword = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth -85 -12, _lineTwo.top + 10, 85 , 24)];
+    [_findPassword setTitle:@"记住密码" forState:UIControlStateNormal];
+    [_findPassword setTitleColor:[GVColor hexStringToColor:@"#999999"] forState:UIControlStateNormal];
+    _findPassword.titleLabel.font = [UIFont systemFontOfSize:12];
+    [self.view addSubview:_findPassword];
+    
 }
 
 -(void)titleBtnClick{
@@ -241,6 +249,7 @@
     _promptBtn.hidden = NO;
     _loginBtn.hidden = NO;
     _textBtn.hidden = NO;
+    
    
 
     _longinBtnTwo.hidden = YES;
@@ -248,6 +257,7 @@
     _imagePassword.hidden = YES;
     _userNameC.hidden = YES;
     _passwordC.hidden = YES;
+    _rememberPassword.hidden = YES;
 }
 
 -(void)titlePassClick{
@@ -270,6 +280,7 @@
     _promptBtn.hidden = YES;
     _loginBtn.hidden = YES;
     _textBtn.hidden = YES;
+     _rememberPassword.hidden = NO;
     
 
     
@@ -329,12 +340,7 @@
     _findPassword.titleLabel.font = [UIFont systemFontOfSize:12];
     [self.view addSubview:_findPassword];
     
-    //记住密码
-    _findPassword = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth -85 -12, _lineTwo.top + 10, 85 , 24)];
-    [_findPassword setTitle:@"记住密码" forState:UIControlStateNormal];
-    [_findPassword setTitleColor:[GVColor hexStringToColor:@"#999999"] forState:UIControlStateNormal];
-    _findPassword.titleLabel.font = [UIFont systemFontOfSize:12];
-    [self.view addSubview:_findPassword];
+    
     
     //实空心圆
 //    _circularBtn = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth -85 -12, _lineTwo.top + 17, 10 , 10)];
