@@ -8,6 +8,8 @@
 
 #import "TotalViewController.h"
 #import "TotalTableViewCell.h"
+#import "DetailsViewController.h"
+
 @interface TotalViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
 @end
@@ -26,7 +28,12 @@
 {
     return 10;
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DetailsViewController * details = [[DetailsViewController alloc]init];
+    [self.navigationController pushViewController:details animated:YES];
+    
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
