@@ -16,7 +16,10 @@
 
 //换算尺寸
 #define SIZE(size,type) (size*72.0/type)
+//颜色
 #import "GVColor.h"
+//label自适应
+#import "UILabel+LabelFrame.h"
 //屏幕尺寸
 #define FrameBounds [UIScreen mainScreen].bounds
 #define WidthBounds [UIScreen mainScreen].bounds.size.width
