@@ -37,5 +37,6 @@
         
         
     }];
+    ///Users/caowenze/DB/DB-master/点吧/点吧/hoteRequest.m:15:36: No visible @interface for 'NetworkRequest' declares the selector 'POST:parameters:Success:Failure:'
 }
 @end

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "NetworkRequest.h"
 #import "hoteModel.h"
+#import "NetworkRequest.h"
 typedef void(^SuccessHoteData)(id Value,id typeValue);
 
 @interface hoteRequest : NSObject
