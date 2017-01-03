@@ -11,6 +11,11 @@
 #import "MyHelper.h"
 #import "UIView+Addition.h"
 #import "findPassWordViewController.h"
+#import "NetworkRequest.h"
+#import "NSString+MD5.h"
+#import <AFNetworking/AFNetworking.h>
+#import "countDown.h"  //倒计时
+
 
 @interface LoginViewController ()<UITextFieldDelegate,UIScrollViewAccessibilityDelegate,UIScrollViewDelegate>
 
@@ -44,7 +49,7 @@
 
 @property (nonatomic, strong) UITextField *userNameC; //输入手机号输入框
 
-@property (nonatomic, strong) UITextField *passwordC;//验证码输入框
+@property (nonatomic, strong) UITextField *passwordC;//密码输入框
 
 @property (nonatomic ,strong) UILabel *promptLable;
 
@@ -63,9 +68,20 @@
 @property (nonatomic ,strong) UIButton *circularBtn;
 
 
+@property (nonatomic, assign) BOOL isUserEmpty;
+@property (nonatomic, assign) BOOL isPasswordEmpty;
+
+
+@property (strong, nonatomic) NSDictionary *phoneCode;
+
+@property (strong, nonatomic) NSDictionary *parameters;
 @end
 
 @implementation LoginViewController
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -204,6 +220,8 @@
     [_textBtn.layer setBorderColor:colorref];//边框颜色
     _textBtn.layer.borderColor=[GVColor hexStringToColor:@"#ffba14"].CGColor;
     _textBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    [_textBtn addTarget:self action:@selector(obtainMessageBtn:) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.view addSubview:_textBtn];
     
     
@@ -215,6 +233,7 @@
     _loginBtn.layer.cornerRadius = 16.5;
     _loginBtn.layer.masksToBounds = YES;
     _loginBtn.titleLabel.font = [UIFont systemFontOfSize:17];
+    [_loginBtn addTarget:self action:@selector(loginclick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_loginBtn];
     
 }
@@ -287,7 +306,8 @@
     _userNameC = [[UITextField alloc]initWithFrame:CGRectMake(50, _titleBtn.bottom + 40, ScreenWidth - 80, 40)];
     _userNameC.delegate = self;
     _userNameC.keyboardType = UITextBorderStyleLine;
-    
+    _userNameC.autocorrectionType = NO;
+    _userNameC.autocapitalizationType = NO;
     _userNameC.placeholder = @"请输入您的账号";
     _userNameC.textColor = [GVColor hexStringToColor:@"#bbbbbb"];
     
@@ -353,11 +373,162 @@
     _longinBtnTwo.layer.cornerRadius = 16.5;
     _longinBtnTwo.layer.masksToBounds = YES;
     _longinBtnTwo.titleLabel.font = [UIFont systemFontOfSize:17];
+    [_longinBtnTwo addTarget:self action:@selector(loginPassword:) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.view addSubview:_longinBtnTwo];
     
     
     
 }
+//////////////////////
+
+
+- (void)returnText:(ReturnTextBlock)block {
+    self.returnTextBlock = block;
+}
+//- (void)viewWillDisappear:(BOOL)animated {
+//    
+//    if (self.returnTextBlock != nil) {
+//        
+//        if (self.loginBtn) {
+//            <#statements#>
+//        }
+//        self.returnTextBlock(@"我改变啦");
+//    }
+//}
+
+
+
+
+/////////////////////
+
+
+//参数
+- (NSDictionary *)phoneCode{
+    if (!_phoneCode) {
+        _phoneCode = @{@"tel":self.userName.text};
+    }
+    return _phoneCode;
+}
+#define PhoneCode @"http://www.kdiana.com/index.php/home/seller/sendMessage"
+#pragma mark- 获取验证码按钮
+-(void)obtainMessageBtn:(UIButton *)sender{
+    [countDown countDownWithButton:sender];
+    [NetworkRequest requestForPhoneCodeUrl:PhoneCode parameters:@{@"tel":self.userName.text}Success:^(id success) {
+        NSLog(@"$%@",success[@"message"]);
+    } Failure:^(id failure) {
+        NSLog(@"$%@",failure);
+    }];
+}
+
+
+-(void)loginaa{
+//    //先判断输入框是否有内容
+//    if (_userNameC.text.length ==  0 ) {
+//        [SVProgressHUD showErrorWithStatus:@"请输入账号"];
+//        [self performSelector:@selector(dismiss) withObject:nil afterDelay:3];
+//        return;
+//    }
+//    
+//    if (_passwordC.text.length == 0) {
+//        [SVProgressHUD showErrorWithStatus:@"请输入密码"];
+//        [self performSelector:@selector(dismiss) withObject:nil afterDelay:3];
+//        return;
+//    }
+//#define JudegPhone @"http://www.kdiana.com/index.php/Home/Seller/login"
+//    NSLog(@"md5%@",[NSString md5:_password.text]);
+//    NSDictionary *param = @{@"username":_userNameC.text,
+//                            @"password":[NSString md5:_password.text],
+//                            @"validate":@""};
+//    __block NSDictionary *result = nil;
+//    [[NetworkRequest shareInstance] POST:JudegPhone parameters:param Success:^(NSDictionary *success) {
+//        NSLog(@"success = %@",success);
+//        result = success;
+//    } Failure:^(id failure) {
+//        NSLog(@"error = %@",failure);
+//    }];
+//    if (result) {
+//        if ([result[@"code"] isEqualToString:@"005"]) {
+//            [SVProgressHUD showErrorWithStatus:@"密码错误"];
+//            [self performSelector:@selector(dismiss) withObject:nil afterDelay:3];
+//            return;
+//        }
+//        if ([result[@"code"] isEqualToString:@"004"]) {
+//            [SVProgressHUD showErrorWithStatus:@"账号不存在"];
+//            [self performSelector:@selector(dismiss) withObject:nil afterDelay:3];
+//            return;
+//        }
+//        if ([result[@"code"] isEqualToString:@"10008"]) {
+//            [SVProgressHUD showErrorWithStatus:@"验证码错误"];
+//            [self performSelector:@selector(dismiss) withObject:nil afterDelay:3];
+//            return;
+//        }
+//        
+//        [self.navigationController popViewControllerAnimated:YES];
+//    }
+//    
+//    
+    
+}
+#define JUDGECODE @"http://www.kdiana.com/index.php/home/seller/checkTelCaptcha"
+#pragma mark- 登录按钮(验证码)
+-(void)loginclick:(UIButton *)sender{
+    NSDictionary *parameters = @{@"contact_tel":self.userName.text,@"sendCode":self.password.text};
+    [NetworkRequest requestForPhoneCodeUrl:JUDGECODE parameters:parameters Success:^(id success) {
+        NSLog(@"=============%@",success);
+        
+       NSString *str = [success objectForKey:@"message"];
+        NSLog(@"%@",str);
+        if ([str  isEqual: @"输入正确" ] ) {
+            
+            NSLog(@"我可以改换个人信息了在这个方法里");
+            if (self.returnTextBlock != nil) {
+                
+            self.returnTextBlock(@"我改变啦");
+            }
+            [self.navigationController popViewControllerAnimated:YES];
+
+        }
+        
+        
+    } Failure:^(id failure) {
+        NSLog(@"%@",failure);
+    }];
+}
+
+
+//参数
+- (NSDictionary *)parameters{
+    if (!_parameters) {
+        NSString *password = [NSString md5:_userNameC.text];
+        _parameters = @{@"username":_passwordC.text,@"password":password};
+    }
+    return _parameters;
+}
+
+#define URL @"http://www.kdiana.com/index.php/Before/UserCenter/user_login"
+#pragma mark- 登录按钮（密码）
+-(void)loginPassword:(UIButton *)sender{
+  [NetworkRequest LogininforRequestWithUrl:URL parameters:_parameters Success:^(id success) {
+      NSLog(@"responseObject = %@",success);
+      if ([success[@"code"] isEqualToString:@"200"]) {
+          NSLog(@"账号密码登录成功");
+      }
+  } Failure:^(id failure) {
+      NSLog(@"");
+  }];
+}
+-(void)dismissAA{
+    
+  [SVProgressHUD dismiss];
+  [SVProgressHUD showSuccessWithStatus:@"登录成功"];
+    [self.navigationController popViewControllerAnimated:YES];
+  
+}
+-(void)dismiss{
+   [SVProgressHUD dismiss];
+}
+
 -(void)findPasswordClick{
     
     findPassWordViewController *find = [[findPassWordViewController alloc] init];

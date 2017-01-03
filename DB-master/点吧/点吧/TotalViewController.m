@@ -8,10 +8,13 @@
 
 #import "TotalViewController.h"
 #import "TotalTableViewCell.h"
+<<<<<<< HEAD
 #import "DetailsViewController.h"
 #import "Order.h"
 #import "AFNManager.h"
 #import <YYModel.h>
+=======
+>>>>>>> 34313a9944d89370503d9df90f40e1a66d0cd408
 @interface TotalViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray * messageArr;
@@ -64,12 +67,7 @@
 {
     return self.messageArr.count;
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    DetailsViewController * details = [[DetailsViewController alloc]init];
-    [self.navigationController pushViewController:details animated:YES];
-    
-}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
