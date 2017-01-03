@@ -10,4 +10,5 @@
 
 @interface sideTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *sideTitle;
 @end

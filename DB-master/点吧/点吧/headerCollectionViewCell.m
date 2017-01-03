@@ -15,12 +15,20 @@
     if(self ==[super initWithFrame:frame])
     {
         [self addSubview:self.labelClosing];
-        [self addSubview:self.labelTitle];
+        [self addSubview:self.store_name];
         [self addSubview:self.labelKM];
-        [self addSubview:self.imageTitle];
+        [self addSubview:self.store_photo];
         [self addSubview:self.imageSTR];
+        [self addSubview:self.slicing];
+        [self addSubview:self.menu_attr];
     }
     return self;
+}
+-(void)setHomeHot:(homeModel_hot *)homeHot
+{
+    self.store_name.text = homeHot.store_name;
+    self.menu_attr.text = homeHot.menu_attr;
+    [self.store_photo sd_setImageWithURL:[NSURL URLWithString:homeHot.store_photo] placeholderImage:[UIImage imageNamed:@"img1"]];
 }
 //距离
 -(UILabel *)labelKM
@@ -35,19 +43,19 @@
     return _labelKM;
 }
 //店名
--(UILabel *)labelTitle
+-(UILabel *)store_name
 {
-    if(_labelTitle == nil)
+    if(_store_name == nil)
     {
-        _labelTitle = [[UILabel alloc]init];
-        _labelTitle.text = @"曹文泽的烘焙店";
-        _labelTitle.font = [UIFont systemFontOfSize:18];
-        _labelTitle.frame = CGRectMake(4, 125, 181, 36);
-        _labelTitle.textColor = [GVColor hexStringToColor:@"#888888"];
-        _labelTitle.numberOfLines = 0;
-        _labelTitle.lineBreakMode = 0;
+        _store_name = [[UILabel alloc]init];
+//        _store_name.text = @"曹文泽的烘焙店";
+        _store_name.font = [UIFont systemFontOfSize:18];
+        _store_name.frame = CGRectMake(4, 125, 181, 36);
+        _store_name.textColor = [GVColor hexStringToColor:@"#888888"];
+        _store_name.numberOfLines = 0;
+        _store_name.lineBreakMode = 0;
     }
-    return _labelTitle;
+    return _store_name;
 }
 //成交
 -(UILabel *)labelClosing
@@ -72,13 +80,34 @@
     return _imageSTR;
 }
 //店门头
--(UIImageView *)imageTitle
+-(UIImageView *)store_photo
 {
-    if(_imageTitle == nil)
+    if(_store_photo == nil)
     {
-        _imageTitle = [[UIImageView alloc]initWithFrame:CGRectMake(5, ZeroFrame, 145, 110)];
-        _imageTitle.image = [UIImage imageNamed:@"img1"];
+        _store_photo = [[UIImageView alloc]initWithFrame:CGRectMake(5, ZeroFrame, 145, 110)];
+        //_store_photo.image = [UIImage imageNamed:@"img1"];
     }
-    return _imageTitle;
+    return _store_photo;
 }
+-(UIImageView *)slicing
+{
+    if(_slicing == nil)
+    {
+        _slicing = [[UIImageView alloc]initWithFrame:CGRectMake(97, 8, 52, 17)];
+        _slicing.image = [UIImage imageNamed:@"tag"];
+    }
+    return _slicing;
+}
+-(UILabel *)menu_attr
+{
+    if(_menu_attr == nil)
+    {
+        _menu_attr = [[UILabel alloc]initWithFrame:CGRectMake(103, 9, 52, 16)];
+        _menu_attr.font = [UIFont systemFontOfSize:12];
+        _menu_attr.text = @"12345";
+        _menu_attr.textColor = [GVColor hexStringToColor:@"ffba14"];
+    }
+    return _menu_attr;
+}
+
 @end

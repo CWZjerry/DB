@@ -1,0 +1,14 @@
+platform :ios, '9.0'
+target '点吧' do
+ pod "AFNetworking"
+ pod’SDCycleScrollView’
+ pod 'Masonry'
+<<<<<<< .merge_file_DtCTo6
+ pod "SDAutoLayout"
+ pod'SVProgressHUD'
+ pod’MJRefresh’
+=======
+ pod 'YYModel'
+ pod 'SDAutoLayout'
+>>>>>>> .merge_file_S8dE8o
+end

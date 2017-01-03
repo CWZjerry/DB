@@ -11,15 +11,52 @@
 #import "TotalViewController.h"
 #import "HallViewController.h"
 #import "TakeViewController.h"
+#import "AFNManager.h"
+#import <YYModel.h>
+#import "Order.h"
 #define WIDTH [UIScreen mainScreen].bounds.size.width
 #define HEIGHT [UIScreen mainScreen].bounds.size.height
 @interface OrderViewController ()<TopScrollDelagate,UIScrollViewDelegate>
 @property(nonatomic,strong)TopScroll *topscroll;
 @property(nonatomic,strong)UIScrollView * bottomScroll;
 @property(nonatomic,strong)NSMutableArray * titleArr;
+@property(nonatomic,strong)NSMutableArray * messageArr;
 @end
 
 @implementation OrderViewController
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
+    self.tabBarController.tabBar.translucent = NO;
+
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    self.navigationController.navigationBar.translucent = NO;
+    self.tabBarController.tabBar.translucent = NO;
+    self.navigationItem.title = @"我的订单";
+    
+    [self addAllChildViewController];
+    [self.view addSubview:self.topscroll];
+    [self.view addSubview:self.bottomScroll];
+    [self.view insertSubview:_bottomScroll belowSubview:_topscroll];
+    [self loadData];
+}
+//模型数组
+-(NSMutableArray *)messageArr
+{
+    if (_messageArr == nil) {
+        _messageArr = [NSMutableArray array];
+    }
+    return _messageArr;
+}
+//加载数据
+-(void)loadData
+{
+}
+//标题数组
 -(NSMutableArray *)titleArr
 {
     if (_titleArr == nil) {
@@ -27,6 +64,7 @@
     }
     return _titleArr;
 }
+//顶部滚动
 -(TopScroll *)topscroll
 {
     if (_topscroll == nil) {
@@ -35,6 +73,7 @@
     }
     return _topscroll;
 }
+//底部滚动
 -(UIScrollView *)bottomScroll
 {
     if (_bottomScroll == nil) {
@@ -48,22 +87,6 @@
         [_bottomScroll addSubview:viewC.view];
     }
     return _bottomScroll;
-}
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.navigationController.navigationBar.translucent = NO;
-    self.tabBarController.tabBar.translucent = NO;
-    self.navigationItem.title = @"我的订单";
-    
-    [self addAllChildViewController];
-    [self.view addSubview:self.topscroll];
-    [self.view addSubview:self.bottomScroll];
-    [self.view insertSubview:_bottomScroll belowSubview:_topscroll];
-    
-    
-    
-    
 }
 //添加子控制器
 -(void)addAllChildViewController
@@ -103,10 +126,6 @@
     NSInteger index = scrollView.contentOffset.x / scrollView.frame.size.width;
     
     [self showViewControlle:index];
-    
-    
-    
-    
     UIButton*bth=self.topscroll.titleArr[index];
     [self.topscroll selectTitleCente:bth];
 }
@@ -124,5 +143,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 @end

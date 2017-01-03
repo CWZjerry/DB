@@ -5,6 +5,34 @@
 //  Created by Pro on 2016/12/26.
 //  Copyright © 2016年 OneGroup. All rights reserved.
 //
+//
+//                    _oo0oo_
+//                   o8888888o
+//                   88" . "88
+//                   (| -_- |)
+//                   0\  =  /0
+//                 ___/`___'\___
+//               .' \\|     |// '.
+//              / \\|||  :  |||// \
+//             / _||||| -:- |||||_ \
+//            |   | \\\  _  /// |   |
+//            | \_|  ''\___/''  |_/ |
+//            \  .-\__  '_'  __/-.  /
+//          ___'. .'  /—.—\  '. .'___
+//        ."" '<  .___\_<|>_/___. '>' "".
+//     | | :  `_ \`.;` \ _ / `;.`/ - ` : | |
+//     \ \  `_.   \_ ___\ /___ _/   ._`  / /
+//  ====`-.____` .__ \_______/ __. -` ___.`====
+//                   `=——='
+//
+//  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//                     I I I
+//                     I I I
+//                     I I I
+//                     I I I
+//                  [#########]
+//                    佛祖保佑
+
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
@@ -16,7 +44,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     //主控制器
     MainViewController * main = [[MainViewController alloc]init];
     //导航

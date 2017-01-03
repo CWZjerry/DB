@@ -10,16 +10,11 @@
 #define AllFrame_pch
 
 #endif /* AllFrame_pch */
-#import "UIView+Addition.h"
-#import <SVProgressHUD.h>
-
+#import "UIView+Addition.m"
 
 //换算尺寸
 #define SIZE(size,type) (size*72.0/type)
-//颜色
 #import "GVColor.h"
-//label自适应
-#import "UILabel+LabelFrame.h"
 //屏幕尺寸
 #define FrameBounds [UIScreen mainScreen].bounds
 #define WidthBounds [UIScreen mainScreen].bounds.size.width
@@ -54,11 +49,3 @@
 #define LDColorHex(c) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:((c)&0xFF)/255.0 alpha:1.0]
 
 #define BASECOLOR [UIColor colorWithRed:1 green:.78 blue:.27 alpha:1]
-
-
-
-
-
-
-
-

@@ -10,30 +10,10 @@
 #import <UIView+SDAutoLayout.h>
 
 
+
 #import "GVColor.h"
 #define GRAY #aaaaaa
 @implementation TotalTableViewCell
-/*
- @property(nonatomic,strong)UILabel *numberLab;
- @property(nonatomic,strong)UIImageView *headImageView;
- @property(nonatomic,strong)UILabel *shopNameLab;
- @property(nonatomic,strong)UILabel *typeLab;
- @property(nonatomic,strong)UILabel *wayLab;
- @property(nonatomic,strong)UILabel *orderTimeLab;
- @property(nonatomic,strong)UILabel *moneyLab;
- @property(nonatomic,strong)UILabel *payLab;
- @property(nonatomic,strong)UIButton *paceBtn;
- @property(nonatomic,strong)UILabel *topLineLab;
- @property(nonatomic,strong)UILabel *bottomLineLab;
- */
-//- (instancetype)initWithFrame:(CGRect)frame
-//{
-//    self = [super initWithFrame:frame];
-//    if (self) {
-//        [self.contentView addSubview:self.payLab];
-//    }
-//    return self;
-//}
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     
@@ -246,7 +226,6 @@
 -(CGRect)labelTextRect:(UILabel *)label
 {
     
-    NSLog(@"%@",label);
     
     NSMutableParagraphStyle *paragraphstyle=[[NSMutableParagraphStyle alloc]init];
     paragraphstyle.lineBreakMode=NSLineBreakByCharWrapping;

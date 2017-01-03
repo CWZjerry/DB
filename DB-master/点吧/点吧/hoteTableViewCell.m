@@ -12,38 +12,13 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
-    [self.rightBtn addTarget:self action:@selector(rightAction:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.leftBtn addTarget:self action:@selector(leftAction:) forControlEvents:UIControlEventTouchUpInside];
+    // Initialization code
 }
--(void)leftAction:(UIButton *)button
-{
-   if([self.delegate respondsToSelector:@selector(leftNewHotelTableViewCell:)])
-   {
-       [self.delegate leftNewHotelTableViewCell:self];
-   }
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
 }
--(void)rightAction:(UIButton *)button
-{
-    if([self.delegate respondsToSelector:@selector(rightNewHotelTableViewCell:)])
-    {
-        [self.delegate rightNewHotelTableViewCell:self];
-    }
-}
-//- (void)rightAction:(UIButton *)button{
-//    
-//    if ([self.delegate respondsToSelector:@selector(newHotelTableViewCell:)]) {
-//        
-//        [self.delegate newHotelTableViewCell:self];
-//    }
-//}
-//-(void)leftAction:(UIButton *)button
-//{
-//    if ([self.delegate respondsToSelector:@selector(newHotelTableViewCell:)]) {
-//    
-//    [self.delegate newHotelTableViewCell:self];
-//}
-//    
-//}
+
 @end
