@@ -195,7 +195,7 @@
     if (buttonIndex == 1) {
 //        [[UserInfoManager share] logoutUserInfo];
         
-        
+        /////////////
         [self.navigationController popViewControllerAnimated:YES];
     }
     
