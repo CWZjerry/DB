@@ -7,40 +7,43 @@
 //
 
 #import "HomeViewController.h"
-#import "GVColor.h"
 #import "HomeTableViewCell.h"
-#import "HomeView.h"
 #import "UILabel+LabelFrame.h"
 #import <SDCycleScrollView.h>
 #import "headerCollectionViewCell.h"
 #import "PopoverView.h"
 #import "hotelViewController.h"
-
+#import "homeRequest.h"
+#import "homeModel.h"
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
 {
-    HomeView * _homeView;
-    UIView * _headerView;
-    NSArray * _headerArr;
+    UIView * _headerView;//头视图View
     UIView * _navView;//导航栏view
+    NSArray * _tableArr;
+    NSArray * _scrollArr;
+    NSArray * _collectionArr;
 }
 @property(nonatomic,strong) UICollectionView * headerCollection;
 @property(nonatomic,strong) SDCycleScrollView * headerSDC;
 @property(nonatomic,strong) UISearchBar * headerSearchBar;
+@property(nonatomic,strong) UITableView * homeTableView;
 @end
 
 @implementation HomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _headerArr = @[@"img1",@"img2",@"img4"];
     
-    [self HomeTableView];
+    [self MJRefreshTableView];
+    [self.view addSubview:self.homeTableView];
 }
+
 #pragma mark -- 视图将要出现时
 -(void)viewWillAppear:(BOOL)animated
 {
     //隐藏导航栏
     [super viewWillAppear:animated];
+    
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     
     //在导航栏上添加View
@@ -49,6 +52,43 @@
     [self.view addSubview:_navView];
     [_navView addSubview:self.headerSearchBar];
     [self navigationBtn];
+}
+#pragma mark -- MJRefresh刷新
+-(void)MJRefreshTableView
+{
+    //上拉刷新
+    self.homeTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [homeRequest GetWithRequest:^(id Value, id img, id hot) {
+            _tableArr = Value;
+            _scrollArr = img;
+            _collectionArr = hot;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self.homeTableView.mj_header endRefreshing];
+                [self.headerCollection reloadData];
+                [self.homeTableView reloadData];
+                
+                //给socroll赋值 设置网络图片数组
+                _headerSDC.imageURLStringsGroup = _scrollArr;
+            });
+            
+        } failure:^(id failure) {
+        }];
+    }];
+    //下拉刷新
+    self.homeTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        
+        //请求网络
+        //当网络请求完毕刷新表格
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            [self.homeTableView.mj_footer endRefreshing];//结束加载表格数据
+            [self.homeTableView reloadData];
+        });
+    }];
+    //马上进入刷新状态
+    [self.homeTableView.mj_header beginRefreshing];
 }
 #pragma mark -- UISearchBar
 -(UISearchBar *)headerSearchBar
@@ -342,11 +382,10 @@
 {
     if(_headerSDC == nil)
     {
-        _headerSDC=[SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(ZeroFrame, ZeroFrame, self.view.frame.size.width, 150) imageNamesGroup:_headerArr];
+        CGRect sdcFrame =CGRectMake(ZeroFrame, ZeroFrame, self.view.frame.size.width, 150);
+        _headerSDC = [SDCycleScrollView cycleScrollViewWithFrame:sdcFrame delegate:self placeholderImage:[UIImage imageNamed:@"img1"]];
         //开启用户交互
         _headerSDC.userInteractionEnabled=YES;
-        //关闭.
-        _headerSDC.showPageControl = NO;
         _headerSDC.delegate=self;
     }
     return _headerSDC;
@@ -365,34 +404,28 @@
 //每个分区有多少行
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return _tableArr.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString * homeStr = @"HomeTableViewCell";
     HomeTableViewCell * cell =[tableView dequeueReusableCellWithIdentifier:homeStr];
+    [cell setHomeInfo:_tableArr[indexPath.row]];
     //取消选中状态
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
-//初始化tableView
--(void)HomeTableView
-{
-    _homeView = [[HomeView alloc]initWithFrame:self.view.frame];
-    self.view = _homeView;
-    _homeView.homeTableView.delegate =self;
-    _homeView.homeTableView.dataSource= self;
-    //隐藏滚动条
-    _homeView.homeTableView.showsVerticalScrollIndicator =
-    NO;
-    //头视图
-    _homeView.homeTableView.tableHeaderView = [self homeHeaderView];
-    //注册cell
-    [_homeView.homeTableView registerNib:[UINib nibWithNibName:NSStringFromClass([HomeTableViewCell class]) bundle:nil] forCellReuseIdentifier:@"HomeTableViewCell"];
-}
-
 #pragma mark -- 下面是collectionView
-
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    hotelViewController *hote = [[hotelViewController alloc]init];
+    homeModel_hot * homeHot =_collectionArr[indexPath.item];
+    hote.idDic = homeHot.store_id;
+    hote.store_name = homeHot.store_name;
+    hote.store_photo = homeHot.store_photo;
+    hote.hidesBottomBarWhenPushed = YES;//隐藏标签栏
+    [self.navigationController pushViewController:hote animated:YES];
+}
 //collectionView布局
 -(UICollectionViewFlowLayout *)layout
 {
@@ -407,21 +440,16 @@
 {
     return CGSizeMake(145, 212);
 }
-
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
-    return 3;
-}
 //每个section中cell的数量
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 3;
+    return _collectionArr.count;
 }
 - ( UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString * collectionViewSTR = @"headerCollectionViewCell";
     headerCollectionViewCell * headerCell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionViewSTR forIndexPath:indexPath];
-    headerCell.imageTitle.image = [UIImage imageNamed:_headerArr[indexPath.row]];
+    [headerCell setHomeHot:_collectionArr[indexPath.item]];
     return headerCell;
 }
 //初始化collectionView
@@ -440,5 +468,19 @@
     }
     return _headerCollection;
 }
-
+#pragma mark -- 初始化tableView
+-(UITableView *)homeTableView
+{
+    if(_homeTableView == nil)
+    {
+        _homeTableView = [[UITableView alloc]initWithFrame:CGRectMake(ZeroFrame, 44, WidthBounds, HeightBounds) style:UITableViewStylePlain];
+        _homeTableView.delegate =self;
+        _homeTableView.dataSource= self;
+        _homeTableView.showsVerticalScrollIndicator = NO;
+        _homeTableView.tableHeaderView = [self homeHeaderView];
+        //注册cell
+        [_homeTableView registerNib:[UINib nibWithNibName:NSStringFromClass([HomeTableViewCell class]) bundle:nil] forCellReuseIdentifier:@"HomeTableViewCell"];
+    }
+    return _homeTableView;
+}
 @end

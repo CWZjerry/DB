@@ -15,10 +15,11 @@
     // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+-(void)setHomeInfo:(homeModel_info *)homeInfo
+{
+    self.store_name.text = homeInfo.store_name;
+    [self.store_photo sd_setImageWithURL:[NSURL URLWithString:homeInfo.store_photo] placeholderImage:[UIImage imageNamed:@"img1"]];
 }
 
 @end

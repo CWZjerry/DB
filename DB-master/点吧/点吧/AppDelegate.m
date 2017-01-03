@@ -44,7 +44,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     //主控制器
     MainViewController * main = [[MainViewController alloc]init];
     //导航

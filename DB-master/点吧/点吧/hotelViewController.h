@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "homeModel.h"
 @interface hotelViewController : UIViewController
 
+@property(nonatomic,strong) NSString * idDic;
+@property(nonatomic,strong) NSString * store_name;
+@property(nonatomic,strong) NSString * store_photo;
 @end
