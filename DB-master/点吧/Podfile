@@ -6,5 +6,5 @@ target '点吧' do
  pod 'Masonry'
  pod "SDAutoLayout"
  pod'SVProgressHUD'
-
+ pod ‘Masonry’
 end
