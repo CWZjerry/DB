@@ -16,24 +16,80 @@
 #import "MoneyView.h"
 #import <UIView+SDAutoLayout.h>
 #import "DetailsView.h"
+#import "JudgeViewController.h"
 #define WIDTH self.view.bounds.size.width
 #define HEIGHT self.view.bounds.size.height
 @interface DetailsViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
-
+@property(nonatomic,strong)UIView *bottomView;
 @end
 
 @implementation DetailsViewController
+-(void)viewWillAppear:(BOOL)animated
 
+{
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = YES;
+    self.tabBarController.tabBar.translucent = YES;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view addSubview:self.tableView];
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 100, 0);
+    //加载底部视图
+    [self setupbottomUI];
+    [self.view insertSubview:_bottomView belowSubview:self.tabBarController.tabBar];
+    
 }
+-(void)setupbottomUI
+{
+    UIView *view = [[UIView alloc]init];
+    _bottomView = view;
+    [self.view addSubview:_bottomView];
+    _bottomView.sd_layout
+    .leftSpaceToView(self.view,0)
+    .rightSpaceToView(self.view,0)
+    .heightIs(48)
+    .bottomSpaceToView(self.view,0);
+    UIButton *jude = [[UIButton alloc]init];
+    [jude setTitle: @"去评价" forState:UIControlStateNormal];
+    [jude setTitleColor:[GVColor hexStringToColor:@"#ffba14"] forState:UIControlStateNormal];
+    jude.backgroundColor = [GVColor hexStringToColor:@"#333333"];
+    jude.titleLabel.font = [UIFont systemFontOfSize:18];
+    [jude addTarget:self action:@selector(judeClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.bottomView addSubview:jude];
+    
+    jude.sd_layout
+    .leftEqualToView(self.bottomView)
+    .topEqualToView(self.bottomView)
+    .bottomEqualToView(self.bottomView)
+    .widthIs(187.5);
+    UIButton *agen = [[UIButton alloc]init];
+    [agen setTitle: @"再来一单" forState:UIControlStateNormal];
+    [agen setTitleColor:[GVColor hexStringToColor:@"#333333"] forState:UIControlStateNormal];
+    agen.backgroundColor = [GVColor hexStringToColor:@"#ffba14"];
+    agen.titleLabel.font = [UIFont systemFontOfSize:18];
+    [self.bottomView addSubview:agen];
+    agen.sd_layout
+    .leftSpaceToView(jude,0)
+    .topEqualToView(self.bottomView)
+    .bottomEqualToView(self.bottomView)
+    .rightEqualToView(self.bottomView);
+    
+    
+}
+//跳转评价页面
+-(void)judeClick:(UIButton *)button
+{
+    JudgeViewController*jude = [[JudgeViewController alloc]init];
+    [self.navigationController pushViewController:jude animated:YES];
+}
+
 -(UITableView *)tableView
 {
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT-120) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT) style:UITableViewStylePlain];
         _tableView.dataSource =self;
         _tableView.delegate = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -203,6 +259,12 @@
     {
         MoneyView *cell = [[MoneyView alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellID"];
         return cell;
+    }
+    else if (indexPath.section == 4)
+    {
+        
+        
+        
     }
     
     return [[UITableViewCell alloc]init];;

@@ -32,6 +32,11 @@
 		152C96621E149BE5006BF716 /* TopScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C96611E149BE5006BF716 /* TopScroll.m */; };
 		152C96651E149BED006BF716 /* TotalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C96641E149BED006BF716 /* TotalViewController.m */; };
 		152C96681E149BFB006BF716 /* TotalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 152C96671E149BFB006BF716 /* TotalTableViewCell.m */; };
+		152EB9F51E1733DC00D7DCA5 /* JudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 152EB9F31E1733DC00D7DCA5 /* JudgeViewController.m */; };
+		152EB9F61E1733DC00D7DCA5 /* JudgeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 152EB9F41E1733DC00D7DCA5 /* JudgeViewController.xib */; };
+		152EB9F91E173C0200D7DCA5 /* MessagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 152EB9F81E173C0200D7DCA5 /* MessagView.m */; };
+		154FBA091E1BBDF600F2F6E5 /* OrderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 154FBA081E1BBDF600F2F6E5 /* OrderViewModel.m */; };
+		154FBA0C1E1BBE0A00F2F6E5 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 154FBA0B1E1BBE0A00F2F6E5 /* Order.m */; };
 		1565FD5F1E1236D800C68872 /* AFNManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1565FD5E1E1236D800C68872 /* AFNManager.m */; };
 		158D9DFA1E11391700B0FFB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 158D9DF91E11391700B0FFB5 /* main.m */; };
 		158D9DFD1E11391700B0FFB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 158D9DFC1E11391700B0FFB5 /* AppDelegate.m */; };
@@ -43,7 +48,6 @@
 		158D9E331E113A3400B0FFB5 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 158D9E321E113A3400B0FFB5 /* HomeViewController.m */; };
 		158D9E361E113A5900B0FFB5 /* TakeAwayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 158D9E351E113A5900B0FFB5 /* TakeAwayViewController.m */; };
 		158D9E3C1E113A9800B0FFB5 /* MySelfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 158D9E3B1E113A9800B0FFB5 /* MySelfViewController.m */; };
-<<<<<<< HEAD
 		15EAF8E81E14A0D400EDB063 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EAF8E71E14A0D400EDB063 /* DetailsViewController.m */; };
 		15EAF8EB1E14B4DB00EDB063 /* DetailsHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EAF8EA1E14B4DB00EDB063 /* DetailsHead.m */; };
 		15EAF8EE1E14B94D00EDB063 /* TextRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EAF8ED1E14B94D00EDB063 /* TextRect.m */; };
@@ -52,11 +56,12 @@
 		15EAF8FA1E151EE100EDB063 /* CostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EAF8F91E151EE100EDB063 /* CostTableViewCell.m */; };
 		15EAF8FD1E1540F000EDB063 /* MoneyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EAF8FC1E1540F000EDB063 /* MoneyView.m */; };
 		15EAF9001E15F6E800EDB063 /* DetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EAF8FF1E15F6E800EDB063 /* DetailsView.m */; };
-=======
+		15EAF9031E16022E00EDB063 /* OrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EAF9021E16022E00EDB063 /* OrderTableViewCell.m */; };
+		15F2A0141E1B371E0087CCE8 /* UILabel+OGLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F2A0131E1B371E0087CCE8 /* UILabel+OGLabel.m */; };
+		15F2A01B1E1B7BFE0087CCE8 /* JudgeVegeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F2A01A1E1B7BFE0087CCE8 /* JudgeVegeTableViewCell.m */; };
 		BA6567E81E14A2130075E865 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6567E71E14A2130075E865 /* LoginViewController.m */; };
 		BA6567EC1E14A2570075E865 /* UIView+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6567EB1E14A2570075E865 /* UIView+Addition.m */; };
 		BA6DB9C71E15FD08002622C8 /* findPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6DB9C61E15FD08002622C8 /* findPassWordViewController.m */; };
->>>>>>> f0daae716d2916b890d511bd806c75b275c966d2
 		E577246B9BE24E07A8D0F9EB /* libPods-点吧.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5C5178484910B1DEA3C0B0 /* libPods-点吧.a */; };
 /* End PBXBuildFile section */
 
@@ -121,6 +126,15 @@
 		152C96641E149BED006BF716 /* TotalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TotalViewController.m; sourceTree = "<group>"; };
 		152C96661E149BFB006BF716 /* TotalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TotalTableViewCell.h; sourceTree = "<group>"; };
 		152C96671E149BFB006BF716 /* TotalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TotalTableViewCell.m; sourceTree = "<group>"; };
+		152EB9F21E1733DC00D7DCA5 /* JudgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JudgeViewController.h; sourceTree = "<group>"; };
+		152EB9F31E1733DC00D7DCA5 /* JudgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JudgeViewController.m; sourceTree = "<group>"; };
+		152EB9F41E1733DC00D7DCA5 /* JudgeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JudgeViewController.xib; sourceTree = "<group>"; };
+		152EB9F71E173C0200D7DCA5 /* MessagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagView.h; sourceTree = "<group>"; };
+		152EB9F81E173C0200D7DCA5 /* MessagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagView.m; sourceTree = "<group>"; };
+		154FBA071E1BBDF600F2F6E5 /* OrderViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderViewModel.h; sourceTree = "<group>"; };
+		154FBA081E1BBDF600F2F6E5 /* OrderViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderViewModel.m; sourceTree = "<group>"; };
+		154FBA0A1E1BBE0A00F2F6E5 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		154FBA0B1E1BBE0A00F2F6E5 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
 		1565FD5D1E1236D800C68872 /* AFNManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNManager.h; sourceTree = "<group>"; };
 		1565FD5E1E1236D800C68872 /* AFNManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNManager.m; sourceTree = "<group>"; };
 		158D9DF51E11391700B0FFB5 /* 点吧.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "点吧.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +174,12 @@
 		15EAF8FC1E1540F000EDB063 /* MoneyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyView.m; sourceTree = "<group>"; };
 		15EAF8FE1E15F6E800EDB063 /* DetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsView.h; sourceTree = "<group>"; };
 		15EAF8FF1E15F6E800EDB063 /* DetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsView.m; sourceTree = "<group>"; };
+		15EAF9011E16022E00EDB063 /* OrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderTableViewCell.h; sourceTree = "<group>"; };
+		15EAF9021E16022E00EDB063 /* OrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderTableViewCell.m; sourceTree = "<group>"; };
+		15F2A0121E1B371E0087CCE8 /* UILabel+OGLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+OGLabel.h"; sourceTree = "<group>"; };
+		15F2A0131E1B371E0087CCE8 /* UILabel+OGLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+OGLabel.m"; sourceTree = "<group>"; };
+		15F2A0191E1B7BFE0087CCE8 /* JudgeVegeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JudgeVegeTableViewCell.h; sourceTree = "<group>"; };
+		15F2A01A1E1B7BFE0087CCE8 /* JudgeVegeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JudgeVegeTableViewCell.m; sourceTree = "<group>"; };
 		624367971C89D6FAA53BACBD /* Pods-点吧.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-点吧.debug.xcconfig"; path = "Pods/Target Support Files/Pods-点吧/Pods-点吧.debug.xcconfig"; sourceTree = "<group>"; };
 		72513B5AB676607BC564AB55 /* libPods-点吧Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-点吧Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F87AB6569E9617A2747B048 /* Pods-点吧.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-点吧.release.xcconfig"; path = "Pods/Target Support Files/Pods-点吧/Pods-点吧.release.xcconfig"; sourceTree = "<group>"; };
@@ -315,9 +335,21 @@
 			name = "颜色处理";
 			sourceTree = "<group>";
 		};
+		152EB9F11E17323100D7DCA5 /* DetailsViewcontr */ = {
+			isa = PBXGroup;
+			children = (
+				15EAF8F11E14DC1C00EDB063 /* C */,
+				15EAF8F01E14DC1600EDB063 /* V */,
+				15EAF8EF1E14DC0E00EDB063 /* M */,
+			);
+			name = DetailsViewcontr;
+			sourceTree = "<group>";
+		};
 		1565FD591E12333C00C68872 /* Tools(工具) */ = {
 			isa = PBXGroup;
 			children = (
+				15F2A0121E1B371E0087CCE8 /* UILabel+OGLabel.h */,
+				15F2A0131E1B371E0087CCE8 /* UILabel+OGLabel.m */,
 				BA6DB9C41E15FCEA002622C8 /* MyHelper.h */,
 				BA6567EA1E14A2570075E865 /* UIView+Addition.h */,
 				BA6567EB1E14A2570075E865 /* UIView+Addition.m */,
@@ -425,8 +457,11 @@
 				15EAF8E41E149FCA00EDB063 /* TopScroll */,
 				152C96571E149BC4006BF716 /* OrderViewController.h */,
 				152C96581E149BC4006BF716 /* OrderViewController.m */,
+				154FBA071E1BBDF600F2F6E5 /* OrderViewModel.h */,
+				154FBA081E1BBDF600F2F6E5 /* OrderViewModel.m */,
+				154FBA0A1E1BBE0A00F2F6E5 /* Order.h */,
+				154FBA0B1E1BBE0A00F2F6E5 /* Order.m */,
 				15EAF8E51E14A00900EDB063 /* DetailsViewController */,
-				15EAF8E21E149F6B00EDB063 /* TotalViewController */,
 				152C96591E149BC4006BF716 /* HallViewController.h */,
 				152C965A1E149BC4006BF716 /* HallViewController.m */,
 				152C965B1E149BC4006BF716 /* TakeViewController.h */,
@@ -454,6 +489,7 @@
 				152C96631E149BED006BF716 /* TotalViewController.h */,
 				152C96641E149BED006BF716 /* TotalViewController.m */,
 				15EAF8E31E149F7800EDB063 /* TotalCell */,
+				152EB9F11E17323100D7DCA5 /* DetailsViewcontr */,
 			);
 			name = TotalViewController;
 			sourceTree = "<group>";
@@ -479,9 +515,14 @@
 		15EAF8E51E14A00900EDB063 /* DetailsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				15EAF8F11E14DC1C00EDB063 /* C */,
-				15EAF8F01E14DC1600EDB063 /* V */,
-				15EAF8EF1E14DC0E00EDB063 /* M */,
+				15EAF8E21E149F6B00EDB063 /* TotalViewController */,
+				152EB9F21E1733DC00D7DCA5 /* JudgeViewController.h */,
+				152EB9F31E1733DC00D7DCA5 /* JudgeViewController.m */,
+				15F2A0191E1B7BFE0087CCE8 /* JudgeVegeTableViewCell.h */,
+				15F2A01A1E1B7BFE0087CCE8 /* JudgeVegeTableViewCell.m */,
+				152EB9F71E173C0200D7DCA5 /* MessagView.h */,
+				152EB9F81E173C0200D7DCA5 /* MessagView.m */,
+				152EB9F41E1733DC00D7DCA5 /* JudgeViewController.xib */,
 			);
 			name = DetailsViewController;
 			sourceTree = "<group>";
@@ -508,6 +549,8 @@
 				15EAF8F91E151EE100EDB063 /* CostTableViewCell.m */,
 				15EAF8FE1E15F6E800EDB063 /* DetailsView.h */,
 				15EAF8FF1E15F6E800EDB063 /* DetailsView.m */,
+				15EAF9011E16022E00EDB063 /* OrderTableViewCell.h */,
+				15EAF9021E16022E00EDB063 /* OrderTableViewCell.m */,
 			);
 			name = V;
 			sourceTree = "<group>";
@@ -655,6 +698,7 @@
 				0DA3F5F81E1389C600E2E030 /* HomeTableViewCell.xib in Resources */,
 				158D9E081E11391700B0FFB5 /* LaunchScreen.storyboard in Resources */,
 				0DE95E171E1336B3008C762F /* img1.png in Resources */,
+				152EB9F61E1733DC00D7DCA5 /* JudgeViewController.xib in Resources */,
 				0DE95E181E1336B3008C762F /* img2.png in Resources */,
 				0DF158951E121E80008142D6 /* searchbar_textfield_background_os7@2x.png in Resources */,
 				158D9E051E11391700B0FFB5 /* Assets.xcassets in Resources */,
@@ -742,31 +786,35 @@
 				152C965F1E149BC4006BF716 /* TakeViewController.m in Sources */,
 				15EAF8EE1E14B94D00EDB063 /* TextRect.m in Sources */,
 				15EAF8FD1E1540F000EDB063 /* MoneyView.m in Sources */,
+				15F2A0141E1B371E0087CCE8 /* UILabel+OGLabel.m in Sources */,
+				15F2A01B1E1B7BFE0087CCE8 /* JudgeVegeTableViewCell.m in Sources */,
 				15EAF8EB1E14B4DB00EDB063 /* DetailsHead.m in Sources */,
 				0D0271FA1E13432E00D3D350 /* headerCollectionViewCell.m in Sources */,
 				0DF158981E121E87008142D6 /* GVColor.m in Sources */,
 				1565FD5F1E1236D800C68872 /* AFNManager.m in Sources */,
 				158D9DFD1E11391700B0FFB5 /* AppDelegate.m in Sources */,
+				154FBA0C1E1BBE0A00F2F6E5 /* Order.m in Sources */,
 				0DC495BC1E13CDC700537686 /* GPSViewController.m in Sources */,
 				152C965E1E149BC4006BF716 /* HallViewController.m in Sources */,
 				152C96621E149BE5006BF716 /* TopScroll.m in Sources */,
 				158D9E2D1E11395500B0FFB5 /* MainViewController.m in Sources */,
 				152C965D1E149BC4006BF716 /* OrderViewController.m in Sources */,
 				15EAF9001E15F6E800EDB063 /* DetailsView.m in Sources */,
+				15EAF9031E16022E00EDB063 /* OrderTableViewCell.m in Sources */,
 				15EAF8E81E14A0D400EDB063 /* DetailsViewController.m in Sources */,
 				15EAF8F71E14E85200EDB063 /* VegeTableViewCell.m in Sources */,
 				0DF158AA1E12473E008142D6 /* HomeView.m in Sources */,
-<<<<<<< HEAD
+				152EB9F51E1733DC00D7DCA5 /* JudgeViewController.m in Sources */,
 				15EAF8FA1E151EE100EDB063 /* CostTableViewCell.m in Sources */,
 				15EAF8F41E14DC7F00EDB063 /* DetailsMessage.m in Sources */,
-=======
 				BA6DB9C71E15FD08002622C8 /* findPassWordViewController.m in Sources */,
->>>>>>> f0daae716d2916b890d511bd806c75b275c966d2
+				152EB9F91E173C0200D7DCA5 /* MessagView.m in Sources */,
 				158D9E361E113A5900B0FFB5 /* TakeAwayViewController.m in Sources */,
 				0DA3F60C1E13A04A00E2E030 /* PopoverViewCell.m in Sources */,
 				0D4421511E12861A00B31284 /* UILabel+LabelFrame.m in Sources */,
 				158D9E331E113A3400B0FFB5 /* HomeViewController.m in Sources */,
 				BA6567EC1E14A2570075E865 /* UIView+Addition.m in Sources */,
+				154FBA091E1BBDF600F2F6E5 /* OrderViewModel.m in Sources */,
 				0DA3F60A1E13A04A00E2E030 /* PopoverAction.m in Sources */,
 				158D9DFA1E11391700B0FFB5 /* main.m in Sources */,
 			);
