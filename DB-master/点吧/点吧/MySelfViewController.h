@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "User.h"
+
 
 @interface MySelfViewController : UIViewController
 
-@property (nonatomic,strong) User *user;
 @end
