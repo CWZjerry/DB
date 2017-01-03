@@ -15,6 +15,13 @@ typedef void(^FailureBlock)(id failure);
 
 + (instancetype)shareInstance;
 
-//网络请求
-- (void)POST:(NSString *)url parameters:(id)parameters Success:(SuccessBlock)succ Failure:(FailureBlock)fail;
+//登录网络请求
++(void)LogininforRequestWithUrl:(NSString *)url parameters:(id)parameters Success:(SuccessBlock)success Failure:(FailureBlock)failure;
+
+
+//验证码
++(void)requestForPhoneCodeUrl:(NSString *)url parameters:(id)parameters Success:(SuccessBlock)succ Failure:(FailureBlock)fail;
+
+
+
 @end

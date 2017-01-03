@@ -7,7 +7,7 @@
 //
 
 #import "GPSViewController.h"
-
+#import "GVColor.h"
 @interface GPSViewController ()
 
 @end
@@ -22,7 +22,7 @@
 {
     if(self = [super initWithRootViewController:rootViewController])
     {
-        self.navigationBar.barTintColor=[UIColor colorWithRed:245/255.0 green:147/255.0 blue:39/255.0 alpha:1.0];
+        self.navigationBar.barTintColor=[GVColor hexStringToColor:@"#ffba14"];
         self.navigationBar.tintColor=[UIColor blackColor];
         //设置标题颜色和字体大小
         [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont systemFontOfSize:22]}];

@@ -25,6 +25,24 @@
     
     [self setUpController];
     //AFN封装测试
+<<<<<<< HEAD
+//    NSString * str = @"https://api.weibo.com/2/statuses/home_timeline.json?access_token=2.00DsiAWGOwnFDBf2cc16b96d0Ojl4W";
+//    [[AFNManager sharedManager]requestType:GET URL:str withparameters:nil success:^(id data) {
+//    } failure:^(NSError *error) {
+//        NSLog(@"%@",error);
+
+//    NSDictionary *dic = @{@"user_id":@"10001",
+//                          @"type":@"1",
+//                          @"page":@"1"
+//                          };
+//    NSString * str = @"http://www.kdiana.com/index.php/Before/MyOrder/orderall";
+//    
+//    [[AFNManager sharedManager]requestType:POST URL:str withparameters:dic success:^(id data) {
+//        NSLog(@"%@",data);
+//    } failure:^(NSError *error) {
+//        NSLog(@"%@",error);
+//    }];
+=======
     NSString * str = @"https://api.weibo.com/2/statuses/home_timeline.json?access_token=2.00DsiAWGOwnFDBf2cc16b96d0Ojl4W";
     [[AFNManager sharedManager]requestType:GET URL:str withparameters:nil success:^(id data) {
        // NSLog(@"%@",data);
@@ -32,6 +50,7 @@
        // NSLog(@"%@",error);
     }];
     
+>>>>>>> 34313a9944d89370503d9df90f40e1a66d0cd408
     
 }
 

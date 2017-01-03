@@ -227,6 +227,7 @@
     //店铺简介
     UILabel * hotelLabelTwo =[[UILabel alloc]initWithFrame:CGRectMake(77, 65, WidthBounds-90, 38)];
     hotelLabelTwo.text =@"人最伟大，得人心者就会得到一切。得财富者失人心，财富也失。故此我们要结好人缘。坚定的信心，能使平凡的人们，做出惊人的事业。对于凌驾命运之上的人来说，信心就是生命的主宰。－－海伦·凯勒";
+    
     hotelLabelTwo.font = [UIFont systemFontOfSize:13];
     hotelLabelTwo.textColor = [GVColor hexStringToColor:@"#eeeeee"];
     hotelLabelTwo.textAlignment = NSTextAlignmentLeft;
