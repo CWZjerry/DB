@@ -31,19 +31,11 @@
         [self.delegate rightNewHotelTableViewCell:self];
     }
 }
-//- (void)rightAction:(UIButton *)button{
-//    
-//    if ([self.delegate respondsToSelector:@selector(newHotelTableViewCell:)]) {
-//        
-//        [self.delegate newHotelTableViewCell:self];
-//    }
-//}
-//-(void)leftAction:(UIButton *)button
-//{
-//    if ([self.delegate respondsToSelector:@selector(newHotelTableViewCell:)]) {
-//    
-//    [self.delegate newHotelTableViewCell:self];
-//}
-//    
-//}
+
+-(void)setHoteInfo:(hoteModel_menu_info *)hoteInfo
+{
+    self.foot_type.text = hoteInfo.foot_type;
+    [self.photo sd_setImageWithURL:[NSURL URLWithString:hoteInfo.photo] placeholderImage:[UIImage imageNamed:@"img1"]];
+    self.menu_price.text = hoteInfo.menu_price;
+}
 @end

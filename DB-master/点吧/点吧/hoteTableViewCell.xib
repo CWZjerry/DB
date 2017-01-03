@@ -126,7 +126,11 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="foot_type" destination="b4V-n4-uRb" id="Ggo-P3-VnK"/>
                 <outlet property="leftBtn" destination="Zgj-Lv-9hP" id="HtA-D9-sfa"/>
+                <outlet property="menu_price" destination="Wes-AF-akS" id="sXy-a2-MWy"/>
+                <outlet property="moneyTitle" destination="Wes-AF-akS" id="Xww-cY-ah4"/>
+                <outlet property="photo" destination="1t6-3h-QZK" id="1xx-2C-ErC"/>
                 <outlet property="rightBtn" destination="UeP-T2-SSN" id="R2B-dH-7qw"/>
                 <outlet property="textFieldNum" destination="JXX-zL-Bju" id="aef-mJ-3UC"/>
             </connections>

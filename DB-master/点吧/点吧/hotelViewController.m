@@ -13,9 +13,14 @@
 #import "HomeViewController.h"
 #import "ThrowLineTool.h"
 #import "sideTableViewCell.h"
+#import "hoteRequest.h"
 @interface hotelViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,ThrowLineToolDelegate,hotelDelegate>
-
-@property(nonatomic,strong) UITableView * hotelTableView;
+{
+    NSArray *sideTitleArr;
+    NSArray * _infoArr;
+    NSArray * _typeArr;
+}
+@property(nonatomic,strong) UITableView * hotelTableView;//右侧tableView
 @property(nonatomic,strong) UISwipeGestureRecognizer*swipeLeft;
 @property(nonatomic,strong) UIView *navigationView;//代替导航View
 @property(nonatomic,strong) UIView * animationView;//小红点动画View
@@ -23,7 +28,8 @@
 @property(nonatomic,strong) UILabel *moneyLabel;//结算总数
 @property(nonatomic,strong) UILabel *countLabel; //购物数量
 @property(nonatomic,strong) UIImageView *shopImg; //购物车图片
-@property(nonatomic,strong) UITableView *sideTableView;//侧滑tableView
+@property(nonatomic,strong) UITableView *sideTableView;//左侧tableView
+@property(nonatomic,strong) UISearchBar * headerSearchBar;//头视图搜索条
 @property(nonatomic,assign) BOOL isSide;
 
 @end
@@ -33,7 +39,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
+    sideTitleArr = @[@"全部",@"烧烤",@"甜品",@"主食",@"酒水"];
     [self.view addSubview:_animationView];//动画红点view
 
     [ThrowLineTool sharedTool].delegate=self;//签单例代理
@@ -44,7 +50,33 @@
     [self shopBtn];
     [self.view addSubview:self.navigationView];
     
+    [self MJRefreshTableView];
     
+    
+}
+-(void)MJRefreshTableView
+{
+    //上拉刷新
+    self.hotelTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        NSDictionary *dic= [NSDictionary dictionaryWithObjectsAndKeys:self.idDic,@"store_id", nil] ;
+        
+        [hoteRequest GetWithRequest:^(id Value, id typeValue) {
+            
+            _infoArr = Value;
+            _typeArr = typeValue;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self.hotelTableView.mj_header endRefreshing];
+                [self.hotelTableView reloadData];
+            });
+            
+        } dicSTR:dic failure:^(id failure) {
+            
+        }];
+    }];
+    //马上进入刷新状态
+    [self.hotelTableView.mj_header beginRefreshing];
+
 }
 #pragma mark --侧滑按钮
 -(void)sideBtn
@@ -81,28 +113,52 @@
     }
    
 }
-#pragma mark -- 侧滑tableView
--(UITableView *)sideTableView
+
+#pragma mark -- 左侧sideHeaderView视图
+-(UIView *)sideHeaderView
 {
-    if(_sideTableView == nil)
-    {
-        _sideTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, -235, HeightBounds) style:UITableViewStylePlain];
-        _sideTableView.delegate =self;
-        _sideTableView.dataSource =self;
-        _sideTableView.contentInset = UIEdgeInsetsMake(0, 0, -64, 0);
-        //设置tableView背景图为uiimage
-        UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"peking"]];
-        [_sideTableView addSubview:imageView];
-        //设置tableView不显示多余的空cell
-        _sideTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
-    }
-    return _sideTableView;
+    UIView * sideHeaderView = [[UIView alloc]initWithFrame:CGRectMake(ZeroFrame, ZeroFrame, 235, 45)];
+    [sideHeaderView addSubview:self.headerSearchBar];
+    
+    return sideHeaderView;
 }
+-(UISearchBar *)headerSearchBar
+{
+    if(_headerSearchBar == nil)
+    {
+        _headerSearchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(22.5, 15, 190, 25)];
+        // 1.设置背景色
+        //设置背景图去掉上下黑线
+        _headerSearchBar.backgroundImage = [[UIImage alloc]init];
+        //背景颜色设置为白色
+        _headerSearchBar.barTintColor = [UIColor whiteColor];
+        _headerSearchBar.placeholder = @"请输入...";
+        /*
+         2.设置边框颜色和圆角(通过KVC的方法获得UISearchBar的私有变量searchField(UITextField类型),所以设置search的边框就是设置了UITextField的边框)
+         */
+        UITextField *searchField = [self.headerSearchBar valueForKey:@"searchField"];
+        if(searchField)
+        {
+            [searchField setBackgroundColor:[UIColor whiteColor]];
+            searchField.layer.cornerRadius = 12.5;
+            searchField.layer.borderWidth = 3;
+            searchField.layer.borderColor = [GVColor hexStringToColor:@"#cccccc"].CGColor;
+            searchField.textColor = [UIColor blackColor];
+            searchField.font = [UIFont systemFontOfSize:15];
+            searchField.layer.masksToBounds = YES;
+            //修改光标颜色
+            searchField.tintColor = [GVColor hexStringToColor:@"#cccccc"];
+        }
+    }
+    return _headerSearchBar;
+}
+//购物车控件
 -(void)shopBtn
 {
     _moneyImg = [[UIImageView alloc]initWithFrame:CGRectMake(WidthBounds-128, HeightBounds-38, 90, 22)];
     _moneyImg.image = [UIImage imageNamed:@"money"];
     [self.view addSubview:_moneyImg];
+    
     
     //结算总数
     NSString *str = @"1200.00";
@@ -143,7 +199,7 @@
     
     //店铺背景图
     UIImageView *bgImgView = [[UIImageView alloc] initWithFrame:CGRectMake(ZeroFrame, ZeroFrame, WidthBounds, 141)];
-    bgImgView.image = [UIImage imageNamed:@"img1"];
+    [bgImgView sd_setImageWithURL:[NSURL URLWithString:self.store_photo] placeholderImage:[UIImage imageNamed:@"img1"]];
     //设置为高斯模糊
     UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
     UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
@@ -153,14 +209,14 @@
     
     //店铺图片
     UIImageView * userImage = [[UIImageView alloc]initWithFrame:CGRectMake(12, 44, 55, 55)];
-    userImage.image = [UIImage imageNamed:@"img2"];
+    [userImage sd_setImageWithURL:[NSURL URLWithString:self.store_photo] placeholderImage:[UIImage imageNamed:@"img1"]];
     userImage.layer.cornerRadius = 26;
     userImage.layer.masksToBounds = YES;
     [headView addSubview:userImage];
     
     //店铺名字
     UILabel * hotelLabel =[[UILabel alloc]initWithFrame:CGRectMake(77, 43, 0, 0)];
-    hotelLabel.text =@"曹文泽的小吃一条街";
+    hotelLabel.text =self.store_name;
     hotelLabel.font = [UIFont systemFontOfSize:19];
     hotelLabel.textColor = [GVColor hexStringToColor:@"#ffffff"];
     //自适应宽度
@@ -231,26 +287,84 @@
     {
         return 45;
     }
-    
 }
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    if([tableView isEqual:self.hotelTableView])
-    {
-        return 10;
-    }
-    return 1;
-}
+//-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//    
+//    if (tableView == self.sideTableView)
+//    {
+//       return 1;
+//    }
+//    else
+//    {
+//       return _typeArr.count;
+//    }
+//    
+//}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if([tableView isEqual:self.hotelTableView])
+    if (tableView == self.sideTableView)
     {
-        return 3;
+       return sideTitleArr.count;
     }
     else
     {
-        return 3;
+       return _infoArr.count;
     }
+    
+}
+//headerTitle
+//-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//    if(tableView == self.hotelTableView)
+//        return sideTitleArr[section];
+//    return nil;
+//}
+//选择某行cell
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //判断是否为左侧按钮
+    if([tableView isEqual:self.sideTableView])
+    {
+        //计算出右侧tableView将要滚动的位置
+        NSIndexPath * sidePath = [NSIndexPath indexPathForRow:0 inSection:indexPath.row];
+        //将右侧tableView移动到指定位置
+        [self.hotelTableView selectRowAtIndexPath:sidePath animated:YES scrollPosition:UITableViewScrollPositionTop];
+        //取消选中效果
+        [self.hotelTableView deselectRowAtIndexPath:sidePath animated:YES];
+        
+        //改变选中时的title颜色
+        sideTableViewCell *cell =  [tableView cellForRowAtIndexPath:indexPath];
+        cell.sideTitle.textColor = [GVColor hexStringToColor:@"ffba14"];
+        
+        
+    }
+    else
+    {
+        
+    }
+}
+//右边滑动跟左边的联动以及tableViewHear的透明度
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat offset = scrollView.contentOffset.y;
+    if(offset<=0 && offset<=-90)
+    {
+        self.navigationView.alpha = 0;
+    }
+    else if(offset <= 500)
+    {
+        self.navigationView.alpha = offset/200;
+    }
+    //如果是左侧tableView直接return;
+//    if(scrollView == self.sideTableView) return;
+//    
+//    //取出显示在视图最靠上的cell的indePath
+//    NSIndexPath * topViewIndexPath = [[self.hotelTableView indexPathsForVisibleRows] firstObject];
+//    //左侧的tableView联动indePath
+//    NSIndexPath * sidePath = [NSIndexPath indexPathForRow:topViewIndexPath.section inSection:0];
+//    //移动左测tableView到指定的indexPath居上显示
+//    [self.sideTableView selectRowAtIndexPath:sidePath animated:YES scrollPosition:UITableViewScrollPositionBottom];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -262,6 +376,9 @@
             
             cell = [[[NSBundle mainBundle] loadNibNamed:@"hoteTableViewCell" owner:self options:nil]lastObject];
         }
+        [cell setHoteInfo:_infoArr[indexPath.row]];
+        NSLog(@"%@",_infoArr);
+        
         cell.delegate=self;
         cell.textFieldNum.userInteractionEnabled = NO;//关闭用户交互
         //隐藏选择状态
@@ -273,6 +390,8 @@
         {
             [cell.textFieldNum setHidden:YES];
         }
+        
+       
         return cell;
     }
     else
@@ -283,6 +402,8 @@
             
             sideCell = [[[NSBundle mainBundle] loadNibNamed:@"sideTableViewCell" owner:self options:nil]lastObject];
         }
+        sideCell.sideTitle.text =sideTitleArr[indexPath.row];
+        sideCell.selectionStyle = 0;
         sideCell.backgroundColor = [UIColor clearColor];
         return sideCell;
     }
@@ -308,7 +429,6 @@
     leftHoteCell.leftBtn.hidden =self.countLabel.text.integerValue == 0;
     leftHoteCell.textFieldNum.hidden = self.countLabel.text.integerValue == 0;
 }
-
 //抛物线结束的回调
 -(void)animationDidFinish
 {
@@ -324,28 +444,32 @@
         }];
     }];
 }
-//渐变(改变透明度)
--(void)scrollViewDidScroll:(UIScrollView *)scrollView
+#pragma mark -- 初始化tableView
+//左侧tableView
+-(UITableView *)sideTableView
 {
-    CGFloat offset = scrollView.contentOffset.y;
-    if(offset<=0 && offset<=-90)
+    if(_sideTableView == nil)
     {
-        self.navigationView.alpha = 0;
+        _sideTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, -235, HeightBounds) style:UITableViewStylePlain];
+        _sideTableView.delegate =self;
+        _sideTableView.dataSource =self;
+        _sideTableView.tableHeaderView = [self sideHeaderView];
+        //设置UITableView背景色为图片
+        _sideTableView.backgroundColor= [UIColor clearColor];
+        UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"peking"]];
+        _sideTableView.backgroundView = imageView;
     }
-    else if(offset <= 500)
-    {
-        self.navigationView.alpha = offset/200;
-    }
+    return _sideTableView;
 }
+//右侧tableView
 -(UITableView *)hotelTableView
 {
     if(_hotelTableView == nil)
     {
-        _hotelTableView = [[UITableView alloc]initWithFrame:FrameBounds style:UITableViewStyleGrouped];
+        _hotelTableView = [[UITableView alloc]initWithFrame:CGRectMake(ZeroFrame, -20, WidthBounds, HeightBounds) style:UITableViewStylePlain];
         _hotelTableView.delegate = self;
         _hotelTableView.dataSource =self;
         _hotelTableView.tableHeaderView = [self headNavigation];//头视图
-//        [_hotelTableView registerNib:[UINib nibWithNibName:NSStringFromClass([hoteTableViewCell class]) bundle:nil] forCellReuseIdentifier:@"hoteTableViewCell"];
     }
     return _hotelTableView;
 }

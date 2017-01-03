@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "homeModel.h"
+#import <UIImageView+WebCache.h>
 @interface HomeTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *store_photo;
+@property (weak, nonatomic) IBOutlet UILabel *store_name;
 
+@property(nonatomic,strong) homeModel_info * homeInfo;
 @end

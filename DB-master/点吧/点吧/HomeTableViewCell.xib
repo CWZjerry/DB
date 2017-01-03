@@ -109,7 +109,11 @@
                     <constraint firstItem="yqo-dc-FvF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="28" id="ycY-Nf-RfV"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="61.5" y="29.5"/>
+            <connections>
+                <outlet property="store_name" destination="hz4-o4-baF" id="yQD-qf-fmq"/>
+                <outlet property="store_photo" destination="G6I-w0-gCd" id="g18-IT-jDu"/>
+            </connections>
+            <point key="canvasLocation" x="-125" y="-43"/>
         </tableViewCell>
     </objects>
     <resources>
